@@ -1,0 +1,82 @@
+section {
+    padding: var(--respiroComentario);
+    color: var(--secundario);
+}
+
+section.secUsuario {
+    margin-top: var(--marginTop);
+}
+
+    section.secUsuario .banner {
+        background: url(../img/background.png) no-repeat center;
+        width: 100%;
+        height: 150px;
+    }
+
+        .banner i {
+            font-size: 50px;
+            color: var(--quinary);
+            position: relative;
+            background-color: var(--principal);
+            width: 75px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50% 50% 0 0;
+            top: 75px;
+        }
+
+    section.secUsuario .userName {
+        display: flex;
+        flex-direction: column;
+        color: var(--secundario);
+        margin-top: var(--marginTop);
+    }
+
+        .userName p {
+            font-size: 20px;
+        }
+
+        .userName .userBio {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+section.secPublicacoes {
+    border-top: var(--quaternario) 1px solid;
+    margin-top: var(--marginTop);
+}
+
+    section.secPublicacoes h2 {
+        margin-top: var(--marginTop);
+        margin-bottom: var(--marginTop);
+    }
+
+    section.secPublicacoes .publiBanner {
+        border: var(--quaternario) 1px solid;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+        .publiBanner .titulo {
+            display: flex;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+            .publiBanner .titulo i {
+                margin-right: 10px;
+            }
+
+        .publiBanner .comentario {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .publiBanner .infos {
+            font-size: 14px;
+            text-align: right;
+        }

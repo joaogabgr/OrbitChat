@@ -52,11 +52,13 @@ section {
         }
 
     section.secComentarios {
+        border-top: var(--quaternario) 1px solid;
         margin-top: var(--marginTop);
     }
 
         section.secComentarios h2 {
             margin-bottom: var(--marginTop);
+            margin-top: var(--marginTop);
         }
 
         section.secComentarios .banner {

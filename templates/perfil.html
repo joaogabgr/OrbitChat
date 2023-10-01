@@ -1,26 +1,25 @@
 {% extends "template.html" %}
 
 {% block head %}
-<title>Pagina inicial | OrbitChat</title>
-<link rel="stylesheet" href="../static/css/index.css">
+<title>Perfil | OrbitChat</title>
+<link rel="stylesheet" href="../static/css/perfil.css">
 <script src="../static/js/script.js" defer></script>
 {% endblock %}
 
 {% block conteudo %}
 <main>
-    <section class="secBemvindo">
-        <h1>Bem vindo ao OrbitChat</h1>
-        <p>OrbitChat é uma rede social para você se conectar com seus amigos.</p>
-    </section>
-    <section class="secPublicar">
-        <form action="" method="post">
-            <textarea onkeyup="ajustarTamanho(this)" name="publicacao" id="publicacao" placeholder="O que você está pensando?"></textarea>
-            <input type="submit" value="Publicar">
-        </form>
-    </section>
-    <section class="secComentarios">
-        <h2>Para você:</h2>
+    <section class="secUsuario">
         <div class="banner">
+            <i class="fa-regular fa-user"></i>
+        </div>
+        <div class="userName">
+            <p>João Gabriel</p>
+            <p class="userBio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quo possimus mollitia quia itaque exercitationem culpa impedit, fugit quidem accusamus inventore harum voluptate aperiam animi. Velit beatae ipsam quam deserunt.</p>
+        </div>
+    </section>
+    <section class="secPublicacoes">
+        <h2>Publicações:</h2>
+        <div class="publiBanner">
             <div class="titulo">
                 <i class="fa-regular fa-user"></i>
                 <p>João Gabriel</p>
