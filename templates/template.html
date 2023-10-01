@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c6d943c8a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/global.css">
+    {% block head %}
+    
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/"><i class="fa-solid fa-earth-americas"></i>OrbitChat</a>
+        <nav class="barraPesquisa">
+            <a href="explorar"><i class="fa-solid fa-magnifying-glass"></i>Explorar</a>
+        </nav>
+        <!-- <nav class="BarraAutenticar">
+            <a href="login"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
+            <a href="cadastro"><i class="fa-solid fa-arrow-right-from-bracket"></i>Cadastro</a>
+        </nav> -->
+        <nav class="BarraMenu">
+            <a href="perfil"><i class="fa-solid fa-users"></i>Perfil</a>
+        </nav>
+    </header>
+        {% block conteudo %}
+
+        {% endblock %}
+    <footer>
+        <a class="logo" href="/"><i class="fa-solid fa-earth-americas"></i></a>
+        <a target="_blank" href="https://github.com/joaogabgr">Desenvolvido por: João Gabriel</a>
+    </footer>
+</body>
+
+</html>
