@@ -27,21 +27,30 @@ section.secUsuario {
             top: 75px;
         }
 
-    section.secUsuario .userName {
+    section.secUsuario .userTitulo {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        flex-direction: row;
         color: var(--secundario);
-        margin-top: var(--marginTop);
+        margin-top: 5px;
     }
 
-        .userName p {
+        .userTitulo .name {
             font-size: 20px;
         }
 
-        .userName .userBio {
-            font-size: 14px;
-            margin-top: 10px;
+        .userTitulo button {
+            background-color: var(--principal);
+            border: var(--quaternario) 1px solid;
+            color: var(--secundario);
+            padding: 5px;
+            cursor: pointer;
         }
+
+    section.secUsuario .userBio {
+        font-size: 14px;
+        margin-top: var(--marginTop);
+    }
 
 section.secPublicacoes {
     border-top: var(--quaternario) 1px solid;

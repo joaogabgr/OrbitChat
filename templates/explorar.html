@@ -1,26 +1,29 @@
 {% extends "template.html" %}
 
 {% block head %}
-<title>Perfil | OrbitChat</title>
-<link rel="stylesheet" href="../static/css/perfil.css">
+<title>Explorar | OrbitChat</title>
+<link rel="stylesheet" href="../static/css/explorar.css">
 <script src="../static/js/script.js" defer></script>
 {% endblock %}
 
 {% block conteudo %}
 <main>
+    <section class="secFiltros">
+        <a href="/explorar?q=usuarios"><i class="fa-solid fa-check"></i>Usuarios</a>
+        <a href="/explorar?q=comentarios"><i class="fa-solid fa-check"></i>Comentarios</a>
+    </section>
     <section class="secUsuario">
+        <h2>Usuarios</h2>
+        <p>Não usuarios com esse nome.</p>
         <div class="banner">
             <i class="fa-regular fa-user"></i>
+            <p>João Gabriel</p>
         </div>
-        <div class="userTitulo">
-            <p class="name">João Gabriel</p>
-            <button>Editar perfil</button>
-        </div>
-        <p class="userBio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quo possimus mollitia quia itaque exercitationem culpa impedit, fugit quidem accusamus inventore harum voluptate aperiam animi. Velit beatae ipsam quam deserunt.</p>
     </section>
-    <section class="secPublicacoes">
-        <h2>Publicações:</h2>
-        <div class="publiBanner">
+    <section class="secComentarios">
+        <h2>Comentarios:</h2>
+        <p>Não há comentarios com essa palavra.</p>
+        <div class="banner">
             <div class="titulo">
                 <i class="fa-regular fa-user"></i>
                 <p>João Gabriel</p>
@@ -33,5 +36,6 @@
             </div>
         </div>
     </section>
+
 </main>
 {% endblock %}

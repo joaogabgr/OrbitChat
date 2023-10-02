@@ -8,3 +8,7 @@ def index():
 @app.route('/perfil')
 def perfil():
     return render_template('perfil.html')
+
+@app.route('/explorar')
+def explorar():
+    return render_template('explorar.html')
