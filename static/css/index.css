@@ -1,90 +1,85 @@
-section {
-    padding: var(--respiroComentario);
-    color: var(--secundario);
+section.secBemvindo {
+    margin-top: var(--marginTop);
 }
 
-    section.secBemvindo {
-        margin-top: var(--marginTop);
-    }
+section.secPublicar {
+    margin-top: var(--marginTop);
+    display: flex;
+}
 
-    section.secPublicar {
-        margin-top: var(--marginTop);
+    .secPublicar form {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
-        .secPublicar form {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-        }
+    .secPublicar textarea {
+        resize: none;
+        overflow-y: hidden;
+        width: calc(100% - 20px);
+        padding: 10px;
+        min-height: 50px;
+        height: auto;
+        background-color: var(--principal);
+        color: var(--secundario);
+        border: var(--quaternario) 1px solid;
+    }
 
-        .secPublicar textarea {
-            resize: none;
-            overflow-y: hidden;
-            width: calc(100% - 20px);
-            padding: 10px;
-            min-height: 50px;
-            height: auto;
-            background-color: var(--principal);
-            color: var(--secundario);
-            border: var(--quaternario) 1px solid;
-        }
+    .secPublicar textarea:focus {
+        outline: none;
+    }
 
-        .secPublicar textarea:focus {
-            outline: none;
-        }
+    .secPublicar input[type="submit"] {
+        margin-top: 10px;
+        padding: 10px;
+        border: var(--quaternario) 1px solid;
+        color: var(--secundario);
+        cursor: pointer;
+        background-color: var(--principal);
+        transition: 350ms;
+        align-self: flex-end;
+    }
 
-        .secPublicar input[type="submit"] {
-            margin-top: 10px;
-            padding: 10px;
-            border: var(--quaternario) 1px solid;
-            color: var(--secundario);
-            cursor: pointer;
-            background-color: var(--principal);
-            transition: 350ms;
-            align-self: flex-end;
-        }
+    .secPublicar input[type="submit"]:hover {
+        background-color: var(--quaternario);
+        color: var(--principal);
+        transition: 350ms;
+    }
 
-        .secPublicar input[type="submit"]:hover {
-            background-color: var(--quaternario);
-            color: var(--principal);
-            transition: 350ms;
-        }
+section.secComentarios {
+    border-top: var(--quaternario) 1px solid;
+    margin-top: var(--marginTop);
+}
 
-    section.secComentarios {
-        border-top: var(--quaternario) 1px solid;
+    section.secComentarios h2 {
+        margin-bottom: var(--marginTop);
         margin-top: var(--marginTop);
     }
 
-        section.secComentarios h2 {
-            margin-bottom: var(--marginTop);
-            margin-top: var(--marginTop);
+    section.secComentarios .banner {
+        border: var(--quaternario) 1px solid;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+        .banner .titulo {
+            display: flex;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        section.secComentarios .banner {
-            border: var(--quaternario) 1px solid;
-            padding: 10px;
-            cursor: pointer;
+            .banner .titulo i {
+                margin-right: 10px;
+            }
+
+        .banner .comentario {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
         }
 
-            .banner .titulo {
-                display: flex;
-                font-size: 18px;
-                font-weight: bold;
-                margin-bottom: 15px;
-            }
-
-                .banner .titulo i {
-                    margin-right: 10px;
-                }
-
-            .banner .comentario {
-                font-size: 16px;
-                margin-bottom: 15px;
-                text-align: justify;
-            }
-
-            .banner .infos {
-                font-size: 14px;
-                text-align: right;
-            }
+        .banner .infos {
+            font-size: 14px;
+            text-align: right;
+        }

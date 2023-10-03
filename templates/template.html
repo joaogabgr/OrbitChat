@@ -17,14 +17,23 @@
         <nav class="barraPesquisa">
             <a href="explorar"><i class="fa-solid fa-magnifying-glass"></i>Explorar</a>
         </nav>
-        <!-- <nav class="BarraAutenticar">
-            <a href="login"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
-            <a href="cadastro"><i class="fa-solid fa-arrow-right-from-bracket"></i>Cadastro</a>
-        </nav> -->
+        <nav class="BarraAutenticar">
+            <a href="autenticar?action=Login"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
+            <a href="autenticar?action=Cadastrar"><i class="fa-solid fa-arrow-right-from-bracket"></i>Cadastro</a>
+        </nav>
         <nav class="BarraMenu">
             <a href="perfil"><i class="fa-solid fa-users"></i>Perfil</a>
         </nav>
     </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul id="messages" class="list-unstyled">
+        {% for message in messages %}
+            <li class="alert alert-success">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
         {% block conteudo %}
 
         {% endblock %}

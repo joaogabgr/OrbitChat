@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+
+{% block head %}
+<title>{{action}} | OrbitChat</title>
+<link rel="stylesheet" href="../static/css/autenticar.css">
+<script src="../static/js/script.js" defer></script>
+{% endblock %}
+
+{% block conteudo %}
+<main>
+    {% if action == 'Login' or action == None %}
+    <section class="login">
+        <h2>Login</h2>
+        <form action="logar" method="post">
+            <input placeholder="EMAIL" type="email" name="email" id="email">
+            <input placeholder="SENHA" type="password" name="password" id="password">
+            <input type="submit" name="submit" id="submit" value="LOGAR">
+        </form>
+        <a href="autenticar?action=Cadastrar">Não tem uma conta? Clique aqui pra criar!</a>
+    </section>
+    {% else %}
+    <section class="cadastrar">
+        <h2>Cadastrar</h2>
+        <form action="cadastrar" method="post">
+            <input placeholder="NOME" type="text" name="nome" id="nome">
+            <input placeholder="EMAIL" type="email" name="email" id="email">
+            <input placeholder="SENHA" type="password" name="password" id="password">
+            <input placeholder="SENHA" type="password" name="password1" id="password1">
+            <input type="submit" name="submit" id="submit" value="CADASTRAR-SE">
+        </form>
+        <a href="autenticar?action=Login">Já tem uma conta? Clique aqui pra logar!</a>
+    </section>
+    {% endif %}
+</main>
+{% endblock %}

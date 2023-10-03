@@ -25,6 +25,15 @@ body {
     background-color: var(--principal);
 }
 
+/* FLASH */
+
+#messages {
+    text-align: center;
+    color: var(--secundario);
+    font-size: 20px;
+    margin-top: var(--marginTop);
+}
+
 /* HEADER */
 
 header {
@@ -61,6 +70,12 @@ main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+}
+
+section {
+    padding: var(--respiroComentario);
+    color: var(--secundario);
+    margin-top: var(--marginTop);
 }
 
 /* FOOTER */

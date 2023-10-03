@@ -1,8 +1,3 @@
-section {
-    padding: var(--respiroComentario);
-    color: var(--secundario);
-}
-
 section.secUsuario {
     margin-top: var(--marginTop);
 }

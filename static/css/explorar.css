@@ -1,71 +1,65 @@
-section {
-    padding: var(--respiroComentario);
-    color: var(--secundario);
+section.secFiltros {
+    display: flex;
+    justify-content: end;
+}
+
+    .secFiltros a {
+        border: var(--quaternario) 1px solid;
+        padding: 5px;
+        color: var(--secundario);
+        width: 20%;
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .secFiltros i {
+        margin-right: 5px;
+    }
+
+section.secUsuario {
     margin-top: var(--marginTop);
 }
 
-    section.secFiltros {
+    section.secUsuario .banner {
+        border: var(--quaternario) 1px solid;
+        padding: 10px;
+        cursor: pointer;
         display: flex;
-        justify-content: end;
+        font-size: 17px;
+        font-weight: bold;
+        margin-bottom: 15px;
     }
 
-        .secFiltros a {
-            border: var(--quaternario) 1px solid;
-            padding: 5px;
-            color: var(--secundario);
-            width: 20%;
-            display: flex;
-            align-items: center;
-            margin-left: 10px;
-        }
 
-        .secFiltros i {
-            margin-right: 5px;
-        }
+section.secComentarios {
+    margin-top: var(--marginTop);
+}
 
-    section.secUsuario {
-        margin-top: var(--marginTop);
+    section.secComentarios .banner {
+        border: var(--quaternario) 1px solid;
+        padding: 10px;
+        cursor: pointer;
     }
 
-        section.secUsuario .banner {
-            border: var(--quaternario) 1px solid;
-            padding: 10px;
-            cursor: pointer;
+        .banner .titulo {
             display: flex;
-            font-size: 17px;
+            font-size: 18px;
             font-weight: bold;
             margin-bottom: 15px;
         }
 
-
-    section.secComentarios {
-        margin-top: var(--marginTop);
-    }
-    
-        section.secComentarios .banner {
-            border: var(--quaternario) 1px solid;
-            padding: 10px;
-            cursor: pointer;
-        }
-    
-            .banner .titulo {
-                display: flex;
-                font-size: 18px;
-                font-weight: bold;
-                margin-bottom: 15px;
+            .banner i {
+                margin-right: 10px;
             }
-    
-                .banner i {
-                    margin-right: 10px;
-                }
-    
-                .banner .comentario {
-                    font-size: 16px;
-                    margin-bottom: 15px;
-                    text-align: justify;
-                }
-    
-                .banner .infos {
-                    font-size: 14px;
-                    text-align: right;
-                }
+
+            .banner .comentario {
+                font-size: 16px;
+                margin-bottom: 15px;
+                text-align: justify;
+            }
+
+            .banner .infos {
+                font-size: 14px;
+                text-align: right;
+            }
