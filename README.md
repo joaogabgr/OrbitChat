@@ -44,7 +44,7 @@ Para configurar o ambiente e iniciar o projeto, siga os passos abaixo:
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/seu_usuario/orbit-chat.git
+git clone https://github.com/seu_usuario/orbit-chat.git .
 ```
 
 2. Ative a maquina virtual:
@@ -65,13 +65,19 @@ py -m venv venv
 pip install -r requirements.txt
 ```
 
-5. Rodar banco de dados:
+5. Configure o banco de dados:
+
+```bash
+Altere as informações no "Banco.py" e "Models.py" 
+```
+
+6. Rodar banco de dados:
 
 ```bash
 python banco.py
 ```
 
-6. Iniciar programa:
+7. Iniciar programa:
 
 ```bash
 python app.py
