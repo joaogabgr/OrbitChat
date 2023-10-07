@@ -18,7 +18,7 @@
         <p>Não usuarios com esse nome.</p>
         {% else %}
         {% for usuario in usuarios %}
-        <div onclick="window.location = '/perfil?q={{usuario.usuario}}'" class="banner">
+        <div onclick="window.location = '/@{{usuario.usuario}}'" class="banner">
             <i class="fa-regular fa-user"></i>
             <p>{{usuario.nome}}</p>
         </div>

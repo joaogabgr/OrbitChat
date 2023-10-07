@@ -13,9 +13,8 @@ def index():
     comentarios = Comentarios.query.order_by(Comentarios.id.desc())
     return render_template('index.html', comentarios=comentarios, user=user())
 
-@app.route('/perfil')
-def perfil():
-    usuario = request.args.get('q')
+@app.route('/@<usuario>')
+def perfil(usuario):
     if Usuarios.query.filter_by(usuario=usuario).first():
         usuario = Usuarios.query.filter_by(usuario=usuario).first()
     else:

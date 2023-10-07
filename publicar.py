@@ -30,4 +30,4 @@ def atualizarPerfil():
     usuario.nome = request.form['name']
     usuario.descricao = request.form['descricao']
     db.session.commit()
-    return redirect(url_for('perfil', q=usuario.usuario))
+    return redirect(url_for('perfil', usuario=usuario.usuario))
