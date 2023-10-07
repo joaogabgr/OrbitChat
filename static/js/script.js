@@ -3,6 +3,13 @@ function ajustarTamanho(element) {
     element.style.height = (25+element.scrollHeight)+"px";
   }
 
+let barraPesquisa = document.querySelector(".barraPesquisa");
+let barraExplorar = document.querySelector(".barraExplorar");
+
+barraPesquisa.addEventListener("click", function() {
+  barraExplorar.classList.toggle("ativar");
+})
+
 let btnEditarPerfil = document.querySelector(".btnEditarPerfil");
 let secEditarPerfil = document.querySelector(".secEditarPerfil");
 let closeEditarPerfil = document.querySelector(".closeEditarPerfil");

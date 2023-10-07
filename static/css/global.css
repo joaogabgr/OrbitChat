@@ -42,12 +42,24 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: var(--quaternario) 1px solid;
+    user-select: none;
 }
 
     header .logo {
     font-size: 18px;
     margin: var(--respiroHeight);
-    }
+    }   
+
+        header p { 
+        color: var(--secundario);
+        margin-left:10px;
+        font-size: 18px;
+        cursor: pointer;
+        }
+
+        header p:hover {
+            color: var(--quinary);
+        }
 
         header a { 
         color: var(--secundario);
@@ -63,6 +75,30 @@ header {
             margin-right: 10px;
         }
 
+
+/* BARRA EXPLORAR */
+
+section.barraExplorar {
+    display: none;
+}
+
+section.barraExplorar.ativar {
+    display: flex;
+}
+
+    section.barraExplorar form {
+        flex-direction: row;
+        width: calc(100vw - 40vw);
+    }
+
+        section.barraExplorar input {
+            width: 90%;
+            margin-right: 10px;
+        }
+
+        section.barraExplorar #submit {
+            width: 10%;
+        }
 
 /* MAIN */
 
@@ -96,6 +132,7 @@ section form {
 
     form input:focus-visible {
         outline: none;
+        color: var(--secundario);
     }
 
     form textarea {

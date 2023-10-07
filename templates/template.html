@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c6d943c8a3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/global.css">
+    <script src="../static/js/script.js" defer></script>
     {% block head %}
     
     {% endblock %}
@@ -15,7 +16,7 @@
     <header>
         <a class="logo" href="/"><i class="fa-solid fa-earth-americas"></i>OrbitChat</a>
         <nav class="barraPesquisa">
-            <a href="explorar"><i class="fa-solid fa-magnifying-glass"></i>Explorar</a>
+            <p><i class="fa-solid fa-magnifying-glass"></i>Explorar</p>
         </nav>
         {% if 'user' not in session or session['user'] == None %}
         <nav class="BarraAutenticar">
@@ -28,6 +29,12 @@
         </nav>
         {% endif %}
     </header>
+    <section class="barraExplorar">
+        <form action="explorar" method="post">
+            <input placeholder="BUSCAR" type="text" name="pesquisa" id="pesquisa">
+            <input type="submit" id="submit">
+        </form> 
+    </section>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul id="messages" class="list-unstyled">

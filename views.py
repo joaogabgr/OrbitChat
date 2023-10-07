@@ -24,9 +24,14 @@ def perfil():
     comentarios = Comentarios.query.filter_by(fk_id=usuario.id).order_by(Comentarios.id.desc())
     return render_template('perfil.html', comentarios=comentarios, user=usuario)
 
-@app.route('/explorar')
+@app.route('/explorar', methods=['GET', 'POST'])
 def explorar():
-    usuarios = Usuarios.query.order_by(Usuarios.id).all()
-    comentarios = Comentarios.query.order_by(Comentarios.id).all()
-    return render_template('explorar.html', user=user(), usuarios=usuarios, comentarios=comentarios)
+    if 'pesquisa' in request.form:
+        pesquisa = request.form['pesquisa']
+    else:
+        pesquisa = ''
+    usuarios = Usuarios.query.filter(Usuarios.usuario.like(f"%{pesquisa}%")).all()
+    comentarios = Comentarios.query.filter(Comentarios.comentario.like(f"%{pesquisa}%")).all()
+    print(comentarios)
+    return render_template('explorar.html', user=user(), pesquisa=pesquisa, usuarios=usuarios, comentarios=comentarios)
     

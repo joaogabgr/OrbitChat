@@ -3,29 +3,33 @@
 {% block head %}
 <title>Explorar | OrbitChat</title>
 <link rel="stylesheet" href="../static/css/explorar.css">
-<script src="../static/js/script.js" defer></script>
+<script src="../static/js/explorar.js" defer></script>
 {% endblock %}
 
 {% block conteudo %}
 <main>
     <section class="secFiltros">
-        <input type="search" value="teste">
-        <a href="/explorar?q=usuarios"><i class="fa-solid fa-check"></i>Usuarios</a>
-        <a href="/explorar?q=comentarios"><i class="fa-solid fa-check"></i>Comentarios</a>
+        <p class="filtroUsuario"><i class="faFiltroUsuario fa-solid fa-xmark"></i>Usuarios</p>
+        <p class="filtroComentario"><i class="faFiltroComentario fa-solid fa-xmark"></i>Comentarios</p>
     </section>
     <section class="secUsuario">
         <h2>Usuarios</h2>
+        {% if usuarios == [] %}
         <p>Não usuarios com esse nome.</p>
+        {% else %}
         {% for usuario in usuarios %}
         <div onclick="window.location = '/perfil?q={{usuario.usuario}}'" class="banner">
             <i class="fa-regular fa-user"></i>
             <p>{{usuario.nome}}</p>
         </div>
         {% endfor %}
+        {% endif %}
     </section>
     <section class="secComentarios">
         <h2>Comentarios:</h2>
+        {% if comentarios == [] %}
         <p>Não há comentarios com essa palavra.</p>
+        {% else %}
         {% for comentario in comentarios %}
         <div class="banner">
             <div class="titulo">
@@ -44,6 +48,7 @@
             </div>
         </div>
         {% endfor %}
+        {% endif %}
     </section>
 
 </main>
