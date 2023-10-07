@@ -3,36 +3,6 @@ section {
     flex-direction: column;
     align-items: center;
 }
-
-    section form {
-        display: flex;
-        flex-direction: column;
-    }
-
-        form input {
-            background-color: var(--principal);
-            border: 1px var(--quaternario) solid;
-            padding: 10px;
-            color: var(--secundario);
-            margin-top: 10px;
-            width: 30vw;
-        }
-
-        form input:focus-visible {
-            outline: none;
-        }
-
-        form #submit {
-            width: calc(30vw + 20px);
-            transition: 350ms;
-        }
-
-        form #submit:hover {
-            background-color: var(--quaternario);
-            color: var(--secundario);
-            transition: 350ms;
-            border: 1px solid var(--secundario);
-        }
     
     section a {
         color: var(--secundario);

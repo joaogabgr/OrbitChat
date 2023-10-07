@@ -28,9 +28,11 @@ TABLES = {}
 TABLES['Usuarios'] = ('''
       CREATE TABLE `usuarios` (
       id INT UNIQUE auto_increment,
+      usuario varchar(15) UNIQUE not null,
       email VARCHAR(255) PRIMARY KEY,
       nome VARCHAR(255) not null,
-      senha VARCHAR(255) not null            
+      senha VARCHAR(255) not null,
+      descricao VARCHAR(255) DEFAULT 'Sem descrição'        
 )''')
 
 TABLES['Comentarios'] = ('''
@@ -39,6 +41,7 @@ TABLES['Comentarios'] = ('''
       fk_id INT not null,
       fk_nome VARCHAR(255) not null,            
       comentario LONGTEXT not null,
+      data TIMESTAMP,
       foreign key (fk_id) references usuarios(id)
 )''')
 

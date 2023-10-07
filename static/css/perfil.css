@@ -47,6 +47,42 @@ section.secUsuario {
         margin-top: var(--marginTop);
     }
 
+section.secEditarPerfil {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    background-color: var(--principal);
+    width: calc(60vw - 60px);
+    align-self: center;
+    border: 1px solid var(--quaternario);
+    padding: 30px;
+    margin: var(--respiroComentario);
+    margin-top: 20px;
+    height: 80vh;
+    align-items: center;
+}
+
+section.secEditarPerfil.ativar {
+    display: flex;
+}
+
+    section.secEditarPerfil .titulo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .titulo i {
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    section.secEditarPerfil label {
+        font-size: 16px;
+        margin-top: var(--marginTop);
+    }
+
+
 section.secPublicacoes {
     border-top: var(--quaternario) 1px solid;
     margin-top: var(--marginTop);
@@ -61,6 +97,11 @@ section.secPublicacoes {
         border: var(--quaternario) 1px solid;
         padding: 10px;
         cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    section.secPublicacoes .publiBanner:last-child {
+        margin-bottom: 0;
     }
 
         .publiBanner .titulo {

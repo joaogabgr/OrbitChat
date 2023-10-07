@@ -60,6 +60,11 @@ section.secComentarios {
         border: var(--quaternario) 1px solid;
         padding: 10px;
         cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    section.secComentarios .banner:last-child {
+        margin-bottom: 0;
     }
 
         .banner .titulo {

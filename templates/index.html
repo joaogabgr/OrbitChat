@@ -13,25 +13,32 @@
         <p>OrbitChat é uma rede social para você se conectar com seus amigos.</p>
     </section>
     <section class="secPublicar">
-        <form action="" method="post">
-            <textarea onkeyup="ajustarTamanho(this)" name="publicacao" id="publicacao" placeholder="O que você está pensando?"></textarea>
+        <form action="publicar" method="post">
+            <textarea onkeyup="ajustarTamanho(this)" name="publicacao" id="publicacao"
+                placeholder="O que você está pensando?"></textarea>
             <input type="submit" value="Publicar">
         </form>
     </section>
     <section class="secComentarios">
         <h2>Para você:</h2>
+        {% for comentario in comentarios %}
         <div class="banner">
             <div class="titulo">
                 <i class="fa-regular fa-user"></i>
-                <p>João Gabriel</p>
+                <p>{{ comentario.fk_nome }}</p>
             </div>
             <div class="comentario">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt optio minus dolor repellendus atque hic voluptatem veritatis saepe dolores iure aspernatur, earum praesentium vel obcaecati voluptate modi minima delectus. Dolores.</p>
+                <p>{{ comentario.comentario}}</p>
             </div>
             <div class="infos">
-                <p>01/10/2023 - 16:47</p>
+                {% if comentario.data %}
+                <p>{{ comentario.data.strftime('%d/%m/%Y - %H:%M') }}</p>
+                {% else %}
+                <p>A data não está disponível.</p>
+                {% endif %}
             </div>
         </div>
+        {% endfor %}
     </section>
 </main>
 {% endblock %}

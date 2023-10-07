@@ -13,25 +13,48 @@
             <i class="fa-regular fa-user"></i>
         </div>
         <div class="userTitulo">
-            <p class="name">João Gabriel</p>
-            <button>Editar perfil</button>
+            <p class="name">{{ user.nome }}</p>
+            {% if user.email == session['user'] %}
+            <button class="btnEditarPerfil">Editar perfil</button>
+            {% else %}
+            <button class="">Seguir</button>
+            {% endif %}
         </div>
-        <p class="userBio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quo possimus mollitia quia itaque exercitationem culpa impedit, fugit quidem accusamus inventore harum voluptate aperiam animi. Velit beatae ipsam quam deserunt.</p>
+        <p class="userBio">{{ user.descricao }}</p>
+    </section>
+    <section class="secEditarPerfil">
+        <form action="atualizarPerfil" method="post">
+            <div class="titulo">
+                <h2>Editar perfil:</h2>
+                <i class="closeEditarPerfil fa-solid fa-xmark"></i>
+            </div>
+            <label for="nome">Nome:</label>
+            <input type="text" name="name" id="name" value="{{ user.nome }}">
+            <label for="descricao">Descrição:</label>
+            <textarea onkeyup="ajustarTamanho(this)" name="descricao" id="descricao">{{ user.descricao }}</textarea>
+            <input type="submit" id="submit">
+        </form>
     </section>
     <section class="secPublicacoes">
         <h2>Publicações:</h2>
+        {% for comentario in comentarios %}
         <div class="publiBanner">
             <div class="titulo">
                 <i class="fa-regular fa-user"></i>
-                <p>João Gabriel</p>
+                <p>{{ comentario.fk_nome }}</p>
             </div>
             <div class="comentario">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt optio minus dolor repellendus atque hic voluptatem veritatis saepe dolores iure aspernatur, earum praesentium vel obcaecati voluptate modi minima delectus. Dolores.</p>
+                <p>{{ comentario.comentario }}</p>
             </div>
             <div class="infos">
-                <p>01/10/2023 - 16:47</p>
+                {% if comentario.data %}
+                <p>{{ comentario.data.strftime('%d/%m/%Y - %H:%M') }}</p>
+                {% else %}
+                <p>A data não está disponível.</p>
+                {% endif %}
             </div>
         </div>
+        {% endfor %}
     </section>
 </main>
 {% endblock %}
