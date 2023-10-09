@@ -44,13 +44,17 @@
         </ul>
     {% endif %}
     {% endwith %}
+    <section class="secPublicar">
+        <form action="publicar" method="post">
+            <textarea onkeyup="ajustarTamanho(this)" name="publicacao" id="publicacao"
+                placeholder="O que você está pensando?"></textarea>
+            <input type="submit" value="Publicar">
+        </form>
+    </section>
         {% block conteudo %}
 
         {% endblock %}
-    <footer>
-        <a class="logo" href="/"><i class="fa-solid fa-earth-americas"></i></a>
-        <a target="_blank" href="https://github.com/joaogabgr">Desenvolvido por: João Gabriel</a>
-    </footer>
+    <i class="btnPost fa-solid fa-pen-to-square"></i>
 </body>
 
 </html>

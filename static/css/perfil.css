@@ -100,10 +100,6 @@ section.secPublicacoes {
         margin-bottom: 10px;
     }
 
-    section.secPublicacoes .publiBanner:last-child {
-        margin-bottom: 0;
-    }
-
         .publiBanner .titulo {
             display: flex;
             font-size: 18px;

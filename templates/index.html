@@ -12,13 +12,6 @@
         <h1>Bem vindo ao OrbitChat</h1>
         <p>OrbitChat é uma rede social para você se conectar com seus amigos.</p>
     </section>
-    <section class="secPublicar">
-        <form action="publicar" method="post">
-            <textarea onkeyup="ajustarTamanho(this)" name="publicacao" id="publicacao"
-                placeholder="O que você está pensando?"></textarea>
-            <input type="submit" value="Publicar">
-        </form>
-    </section>
     <section class="secComentarios">
         <h2>Para você:</h2>
         {% for comentario in comentarios %}

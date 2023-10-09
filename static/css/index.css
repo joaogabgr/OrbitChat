@@ -2,50 +2,6 @@ section.secBemvindo {
     margin-top: var(--marginTop);
 }
 
-section.secPublicar {
-    margin-top: var(--marginTop);
-    display: flex;
-}
-
-    .secPublicar form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .secPublicar textarea {
-        resize: none;
-        overflow-y: hidden;
-        width: calc(100% - 20px);
-        padding: 10px;
-        min-height: 50px;
-        height: auto;
-        background-color: var(--principal);
-        color: var(--secundario);
-        border: var(--quaternario) 1px solid;
-    }
-
-    .secPublicar textarea:focus {
-        outline: none;
-    }
-
-    .secPublicar input[type="submit"] {
-        margin-top: 10px;
-        padding: 10px;
-        border: var(--quaternario) 1px solid;
-        color: var(--secundario);
-        cursor: pointer;
-        background-color: var(--principal);
-        transition: 350ms;
-        align-self: flex-end;
-    }
-
-    .secPublicar input[type="submit"]:hover {
-        background-color: var(--quaternario);
-        color: var(--principal);
-        transition: 350ms;
-    }
-
 section.secComentarios {
     border-top: var(--quaternario) 1px solid;
     margin-top: var(--marginTop);
@@ -61,10 +17,6 @@ section.secComentarios {
         padding: 10px;
         cursor: pointer;
         margin-bottom: 10px;
-    }
-
-    section.secComentarios .banner:last-child {
-        margin-bottom: 0;
     }
 
         .banner .titulo {

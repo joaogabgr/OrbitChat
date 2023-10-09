@@ -20,7 +20,7 @@ section.secFiltros {
     }
 
 section.secUsuario {
-    margin-top: var(--marginTop);
+    margin-bottom: var(--marginTop);
 }
 
 section.secUsuario.oculto {
@@ -39,7 +39,7 @@ section.secUsuario.oculto {
 
 
 section.secComentarios {
-    margin-top: var(--marginTop);
+    margin-bottom: var(--marginTop);
 }
 
 section.secComentarios.oculto {
