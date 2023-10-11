@@ -10,6 +10,13 @@ barraPesquisa.addEventListener("click", function() {
   barraExplorar.classList.toggle("ativar");
 })
 
+let btnPost = document.querySelector(".btnPost");
+let secPublicar = document.querySelector(".secPublicar");
+
+btnPost.addEventListener("click", function() {
+  secPublicar.classList.toggle("ativar");
+})
+
 let btnEditarPerfil = document.querySelector(".btnEditarPerfil");
 let secEditarPerfil = document.querySelector(".secEditarPerfil");
 let closeEditarPerfil = document.querySelector(".closeEditarPerfil");

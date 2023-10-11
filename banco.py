@@ -7,7 +7,7 @@ try:
       conn = mysql.connector.connect(
             host='127.0.0.1',
             user='root',
-            password='fatec'
+            password='2412'
       )
 except mysql.connector.Error as err:
       if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -39,10 +39,13 @@ TABLES['Comentarios'] = ('''
       CREATE TABLE Comentarios (
       id INT PRIMARY KEY auto_increment,
       fk_id INT not null,
+      resposta INT,
+      qtd_respostas INT DEFAULT 0,
       fk_nome VARCHAR(255) not null,            
       comentario LONGTEXT not null,
       data TIMESTAMP,
-      foreign key (fk_id) references usuarios(id)
+      foreign key (fk_id) references usuarios(id),
+      foreign key (resposta) references comentarios(id)
 )''')
 
 for tabela_nome in TABLES:

@@ -10,7 +10,7 @@ def user():
 
 @app.route('/')
 def index():
-    comentarios = Comentarios.query.order_by(Comentarios.id.desc())
+    comentarios = Comentarios.query.filter_by(resposta=None).order_by(Comentarios.id.desc())
     return render_template('index.html', comentarios=comentarios, user=user())
 
 @app.route('/@<usuario>')
@@ -20,8 +20,15 @@ def perfil(usuario):
     else:
         flash('Usuário não encontrado!')
         return redirect(url_for('index'))
-    comentarios = Comentarios.query.filter_by(fk_id=usuario.id).order_by(Comentarios.id.desc())
+    comentarios = Comentarios.query.filter_by(resposta=None).order_by(Comentarios.id.desc())
+    resposta = Comentarios.query.filter(Comentarios.resposta.isnot(None)).order_by(Comentarios.id.desc()).all()
     return render_template('perfil.html', comentarios=comentarios, user=usuario)
+
+@app.route('/!<id>')
+def comentario(id):
+    comentario = Comentarios.query.filter_by(id=id).first()
+    respostas = Comentarios.query.filter_by(resposta=id).order_by(Comentarios.id.desc())
+    return render_template('comentario.html', comentario=comentario, respostas=respostas, user=user())
 
 @app.route('/explorar', methods=['GET', 'POST'])
 def explorar():

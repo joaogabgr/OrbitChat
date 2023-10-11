@@ -1,0 +1,33 @@
+{% block comentario %}
+<div onclick="window.location = '/!{{comentario.id}}'" class="banner">
+    <div class="titulo">
+        <i class="fa-regular fa-user"></i>
+        <p>{{ comentario.fk_nome }}</p>
+    </div>
+    <div class="comentario">
+        <p>{{ comentario.comentario}}</p>
+    </div>
+    <div class="infos">
+        <div>
+            <i class="fa-regular fa-comment"></i>
+            <p>{{ comentario.qtd_respostas }}</p>
+        </div>
+        <div>
+            <i class="fa-regular fa-heart"></i>
+            <p>{{ comentario.likes }}</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-retweet"></i>
+            <p>{{ comentario.compartilhamentos }}</p>
+        </div>
+        <div class="data">
+            {% if comentario.data %}
+            <p>{{ comentario.data.strftime('%d/%m/%Y - %H:%M') }}</p>
+            {% else %}
+            <p>A data não está disponível.</p>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

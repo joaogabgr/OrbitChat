@@ -35,25 +35,10 @@
             <input type="submit" id="submit">
         </form>
     </section>
-    <section class="secPublicacoes">
+    <section class="secComentarios">
         <h2>Publicações:</h2>
         {% for comentario in comentarios %}
-        <div class="publiBanner">
-            <div class="titulo">
-                <i class="fa-regular fa-user"></i>
-                <p>{{ comentario.fk_nome }}</p>
-            </div>
-            <div class="comentario">
-                <p>{{ comentario.comentario }}</p>
-            </div>
-            <div class="infos">
-                {% if comentario.data %}
-                <p>{{ comentario.data.strftime('%d/%m/%Y - %H:%M') }}</p>
-                {% else %}
-                <p>A data não está disponível.</p>
-                {% endif %}
-            </div>
-        </div>
+        {% include "secComentario.html" %}
         {% endfor %}
     </section>
 </main>

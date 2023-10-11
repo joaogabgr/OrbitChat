@@ -1,0 +1,7 @@
+section.secComentarios {
+    border-top: none;
+}
+
+section.secComentarios:last-child {
+    padding: 0 21vw;
+}

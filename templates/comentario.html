@@ -1,0 +1,19 @@
+{% extends "template.html" %}
+
+{% block head %}
+<title>{{ comentario.fk_nome }} | OrbitChat</title>
+<link rel="stylesheet" href="../static/css/comentario.css">
+{% endblock %}
+
+{% block conteudo %}
+<main>
+    <section class="secComentarios">
+        {% include "secComentario.html" %}
+    </section>
+    <section class="secComentarios">
+        {% for comentario in respostas %}
+        {% include "secComentario.html" %}
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}

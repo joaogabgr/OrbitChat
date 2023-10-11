@@ -8,7 +8,7 @@ section.secUsuario {
         height: 150px;
     }
 
-        .banner i {
+        section.secUsuario .banner i {
             font-size: 50px;
             color: var(--quinary);
             position: relative;
@@ -30,11 +30,11 @@ section.secUsuario {
         margin-top: 5px;
     }
 
-        .userTitulo .name {
+    section.secUsuario .userTitulo .name {
             font-size: 20px;
         }
 
-        .userTitulo button {
+        section.secUsuario .userTitulo button {
             background-color: var(--principal);
             border: var(--quaternario) 1px solid;
             color: var(--secundario);
@@ -72,7 +72,7 @@ section.secEditarPerfil.ativar {
         justify-content: space-between;
     }
 
-    .titulo i {
+    section.secEditarPerfil .titulo i {
         font-size: 25px;
         cursor: pointer;
     }
@@ -81,43 +81,3 @@ section.secEditarPerfil.ativar {
         font-size: 16px;
         margin-top: var(--marginTop);
     }
-
-
-section.secPublicacoes {
-    border-top: var(--quaternario) 1px solid;
-    margin-top: var(--marginTop);
-}
-
-    section.secPublicacoes h2 {
-        margin-top: var(--marginTop);
-        margin-bottom: var(--marginTop);
-    }
-
-    section.secPublicacoes .publiBanner {
-        border: var(--quaternario) 1px solid;
-        padding: 10px;
-        cursor: pointer;
-        margin-bottom: 10px;
-    }
-
-        .publiBanner .titulo {
-            display: flex;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-            .publiBanner .titulo i {
-                margin-right: 10px;
-            }
-
-        .publiBanner .comentario {
-            font-size: 16px;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .publiBanner .infos {
-            font-size: 14px;
-            text-align: right;
-        }

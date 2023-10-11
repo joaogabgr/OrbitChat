@@ -45,7 +45,12 @@
     {% endif %}
     {% endwith %}
     <section class="secPublicar">
+        {% if '/!' not in request.path %}
         <form action="publicar" method="post">
+        {% else %}
+        <form action="responder" method="post">
+            <input name="resposta" type="hidden" value="{{ comentario.id }}">
+        {% endif %}
             <textarea onkeyup="ajustarTamanho(this)" name="publicacao" id="publicacao"
                 placeholder="O que você está pensando?"></textarea>
             <input type="submit" value="Publicar">
