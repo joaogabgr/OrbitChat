@@ -81,3 +81,23 @@ section.secEditarPerfil.ativar {
         font-size: 16px;
         margin-top: var(--marginTop);
     }
+
+.btnComentarios {
+    display: flex;
+}
+
+    .btnComentarios p {
+        border: 1px solid var(--quaternario);
+        width: max-content;
+        padding: 5px;
+        margin-right: 10px;
+        margin-top: var(--marginTop);
+        margin-bottom: var(--marginTop);
+        cursor: pointer;
+    }
+
+    .btnComentarios p:hover {
+        background-color: var(--quaternario);
+        border: 1px solid var(--secundario);
+        transition: 350ms;
+    }

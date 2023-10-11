@@ -36,10 +36,19 @@
         </form>
     </section>
     <section class="secComentarios">
-        <h2>Publicações:</h2>
+        <div class="btnComentarios">
+            <p onclick="window.location = '/@{{user.usuario}}?action=post'">Publicações</p>
+            <p onclick="window.location = '/@{{user.usuario}}?action=respostas'">Respostas</p>
+        </div>
+        {% if action == 'post' or action == None %}
         {% for comentario in comentarios %}
         {% include "secComentario.html" %}
         {% endfor %}
+        {% else %}
+        {% for comentario in respostas %}
+        {% include "secComentario.html" %}
+        {% endfor %}
+        {% endif %}
     </section>
 </main>
 {% endblock %}

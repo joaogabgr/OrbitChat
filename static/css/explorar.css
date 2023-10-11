@@ -40,37 +40,9 @@ section.secUsuario.oculto {
 
 section.secComentarios {
     margin-bottom: var(--marginTop);
+    border-top: none;
 }
 
 section.secComentarios.oculto {
     display: none;
 }
-
-    section.secComentarios .banner {
-        border: var(--quaternario) 1px solid;
-        padding: 10px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-
-        .banner .titulo {
-            display: flex;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-            .banner i {
-                margin-right: 10px;
-            }
-
-            .banner .comentario {
-                font-size: 16px;
-                margin-bottom: 15px;
-                text-align: justify;
-            }
-
-            .banner .infos {
-                font-size: 14px;
-                text-align: right;
-            }

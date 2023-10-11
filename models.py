@@ -13,8 +13,10 @@ class Comentarios(db.Model):
     id = db.Column(db.INTEGER, primary_key=True, index=True)
     fk_id = db.Column(db.Integer, nullable=False)
     fk_nome = db.Column(db.String(255), nullable=False)
+    fk_usuario = db.Column(db.String(15), nullable=False)
     resposta = db.Column(db.Integer, nullable=True)
     qtd_respostas = db.Column(db.Integer, default=0)
+    qtd_likes = db.Column(db.Integer, default=0)
     comentario = db.Column(db.Text, nullable=False)
     data = db.Column(db.DateTime(timezone=True), default=func.now())
 

@@ -1,6 +1,6 @@
 {% block comentario %}
-<div onclick="window.location = '/!{{comentario.id}}'" class="banner">
-    <div class="titulo">
+<div class="banner">
+    <div onclick="window.location = '/@{{comentario.fk_usuario}}'" class="titulo">
         <i class="fa-regular fa-user"></i>
         <p>{{ comentario.fk_nome }}</p>
     </div>
@@ -8,13 +8,21 @@
         <p>{{ comentario.comentario}}</p>
     </div>
     <div class="infos">
-        <div>
+        <div onclick="window.location = '/!{{comentario.id}}'">
             <i class="fa-regular fa-comment"></i>
             <p>{{ comentario.qtd_respostas }}</p>
         </div>
-        <div>
+        <div class="curtir" onclick="atualizarDados('{{comentario.id}}')">
+            {% if user == None %}
             <i class="fa-regular fa-heart"></i>
-            <p>{{ comentario.likes }}</p>
+            {% else %}
+                {% if like.query.filter_by(user_id=user.id, tweet_id=comentario.id).first() %}
+                <i class="curtida fa-regular fa-heart ativo"></i>
+                {% else %}
+                <i class="curtida fa-regular fa-heart"></i>
+                {% endif %}
+            {% endif %}
+            <p class="qtdLikes">{{ comentario.qtd_likes }}</p>
         </div>
         <div>
             <i class="fa-solid fa-retweet"></i>

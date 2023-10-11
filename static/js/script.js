@@ -10,6 +10,25 @@ barraPesquisa.addEventListener("click", function() {
   barraExplorar.classList.toggle("ativar");
 })
 
+function atualizarDados(id) {
+  fetch('/curtir/' + id);
+}
+
+let curtir = document.querySelectorAll(".curtir");
+let curtida = document.querySelectorAll(".curtida");
+let qtdLikes = document.querySelectorAll(".qtdLikes");
+
+curtir.forEach(function(element, index) {
+  element.addEventListener("click", function() {
+    if (curtida[index].classList.contains("ativo")) {
+      qtdLikes[index].innerHTML = eval(qtdLikes[index].innerHTML) - 1;
+    } else {
+      qtdLikes[index].innerHTML = eval(qtdLikes[index].innerHTML) + 1;
+    }
+    curtida[index].classList.toggle("ativo");
+  })
+})
+
 let btnPost = document.querySelector(".btnPost");
 let secPublicar = document.querySelector(".secPublicar");
 

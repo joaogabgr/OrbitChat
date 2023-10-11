@@ -41,11 +41,14 @@ TABLES['Comentarios'] = ('''
       fk_id INT not null,
       resposta INT,
       qtd_respostas INT DEFAULT 0,
-      fk_nome VARCHAR(255) not null,            
+      qtd_likes INT DEFAULT 0,
+      fk_nome VARCHAR(255) not null,    
+      fk_usuario VARCHAR(15) not null,        
       comentario LONGTEXT not null,
       data TIMESTAMP,
       foreign key (fk_id) references usuarios(id),
-      foreign key (resposta) references comentarios(id)
+      foreign key (resposta) references comentarios(id),
+      foreign key (fk_usuario) references usuarios(usuario)
 )''')
 
 for tabela_nome in TABLES:

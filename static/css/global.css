@@ -7,7 +7,7 @@
 :root {
     --principal: #0A090C;
     --secundario: #F0EDEE;
-    --terciario: #131213;
+    --terciario: #ff0000;
     --quaternario: #2c666e;
     --quinary: #90ddf0; 
 
@@ -171,7 +171,6 @@ section.secComentarios h2 {
 section.secComentarios .banner {
     border: var(--quaternario) 1px solid;
     padding: 10px;
-    cursor: pointer;
     margin-bottom: 10px;
 }
 
@@ -180,6 +179,7 @@ section.secComentarios .banner {
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 15px;
+        cursor: pointer;
     }
 
         section.secComentarios .banner .titulo i {
@@ -195,17 +195,31 @@ section.secComentarios .banner {
     section.secComentarios .banner .infos {
         display: flex;
         justify-content: space-between;
-        font-size: 14px;
+        font-size: 16px;
         text-align: right;
     }
 
         section.secComentarios .infos div {
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
 
-            section.secComentarios .infos div i {
-                margin-right: 5px;
+                section.secComentarios .infos div i {
+                    margin-right: 5px;
+                }
+
+                section.secComentarios .infos .ativo{
+                    color: var(--terciario);
+                }
+
+            section.secComentarios .infos div:hover {
+                color: var(--quinary);
+            }
+
+            section.secComentarios .infos div:last-child:hover {
+                color: var(--secundario);
+                cursor: auto;
             }
 
 /* MAIN */
