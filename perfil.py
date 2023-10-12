@@ -14,24 +14,29 @@ def seguir(usuario):
     usuario = user()
     if seguir == None:
         flash('Usuário não encontrado!')
+        print(2)
         return redirect(url_for('index'))
     if usuario == None:
         flash('Você precisa estar logado para seguir!')
+        print(3)
         return redirect(url_for('index'))
     if usuario.id == seguir.id:
         flash('Você não pode seguir a si mesmo!')
+        print(4)
         return redirect(url_for('index'))
     if Seguidor.query.filter_by(user_email=usuario.email, fk_id=seguir.id).first():
         flash('Você já segue esse usuário!')
+        print(5)
         return redirect(url_for('index'))
     else:
         seguidor = Seguidor(user_email=usuario.email, fk_id=seguir.id)
         seguir.qtd_seguidores += 1
         usuario.qtd_seguindo += 1
+    print(1)
     db.session.add(usuario)
     db.session.add(seguidor)
     db.session.commit()
-    return redirect(url_for('index'))
+    return 'None'
 
 @app.route('/deseguir/<usuario>', methods=['POST', 'GET'])
 def deseguir(usuario):

@@ -14,9 +14,15 @@
     </section>
     <section class="secComentarios">
         <h2>Para você:</h2>
+        {% if user == None %}
         {% for comentario in comentarios %}
         {% include "secComentario.html" %}
         {% endfor %}
+        {% else %}
+        {% for comentario in seguidoresComentarios %}
+        {% include "secComentario.html" %}
+        {% endfor %}
+        {% endif %}
     </section>
 </main>
 {% endblock %}
