@@ -3,7 +3,7 @@
 {% block head %}
 <title>Perfil | OrbitChat</title>
 <link rel="stylesheet" href="../static/css/perfil.css">
-<script src="../static/js/script.js" defer></script>
+<script src="../static/js/perfil.js" defer></script>
 {% endblock %}
 
 {% block conteudo %}
@@ -13,14 +13,20 @@
             <i class="fa-regular fa-user"></i>
         </div>
         <div class="userTitulo">
-            <p class="name">{{ user.nome }}</p>
-            {% if user.email == session['user'] %}
+            <p class="name">{{ usuario.nome }}</p>
+            {% if usuario.email == session['user'] %}
             <button class="btnEditarPerfil">Editar perfil</button>
             {% else %}
-            <button class="">Seguir</button>
+            {% if seguidor.query.filter_by(user_email=session['user'], fk_id=usuario.id).first() == None %}
+            <button class="seguir">Seguir</button>
+            {% else %}
+            <button class="seguir seguindo">Seguindo</button>
+            {% endif %}
             {% endif %}
         </div>
-        <p class="userBio">{{ user.descricao }}</p>
+        <p class="userUsuario">@{{ usuario.usuario }}</p>
+        <p class="userBio">{{ usuario.descricao }}</p>
+        <p class="userBio"><span class="qtd_seguidores">{{usuario.qtd_seguidores}}</span> Seguidores | {{ usuario.qtd_seguindo }} Seguindo</p>
     </section>
     <section class="secEditarPerfil">
         <form action="atualizarPerfil" method="post">
@@ -29,16 +35,16 @@
                 <i class="closeEditarPerfil fa-solid fa-xmark"></i>
             </div>
             <label for="nome">Nome:</label>
-            <input type="text" name="name" id="name" value="{{ user.nome }}">
+            <input type="text" name="name" id="name" value="{{ usuario.nome }}">
             <label for="descricao">Descrição:</label>
-            <textarea onkeyup="ajustarTamanho(this)" name="descricao" id="descricao">{{ user.descricao }}</textarea>
+            <textarea onkeyup="ajustarTamanho(this)" name="descricao" id="descricao">{{ usuario.descricao }}</textarea>
             <input type="submit" id="submit">
         </form>
     </section>
     <section class="secComentarios">
         <div class="btnComentarios">
-            <p onclick="window.location = '/@{{user.usuario}}?action=post'">Publicações</p>
-            <p onclick="window.location = '/@{{user.usuario}}?action=respostas'">Respostas</p>
+            <p onclick="window.location = '/@{{usuario.usuario}}?action=post'">Publicações</p>
+            <p onclick="window.location = '/@{{usuario.usuario}}?action=respostas'">Respostas</p>
         </div>
         {% if action == 'post' or action == None %}
         {% for comentario in comentarios %}

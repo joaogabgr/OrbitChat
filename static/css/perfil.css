@@ -42,6 +42,12 @@ section.secUsuario {
             cursor: pointer;
         }
 
+        section.secUsuario .userTitulo button:hover {
+            background-color: var(--quaternario);
+            border: var(--secundario) 1px solid;
+            transition: 350ms;
+        }
+
     section.secUsuario .userBio {
         font-size: 14px;
         margin-top: var(--marginTop);

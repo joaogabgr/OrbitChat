@@ -10,6 +10,7 @@ db = SQLAlchemy(app)
 from views import *
 from autenticar import *
 from publicar import *
+from perfil import *
 
 with app.app_context():
     db.create_all()

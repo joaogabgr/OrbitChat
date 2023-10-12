@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from app import app, db
-from models import Usuarios, Comentarios, Like
+from models import Usuarios, Comentarios, Likes
 
 def user():
     if 'user' not in session or session['user'] == None:
@@ -59,18 +59,18 @@ def curtir(id):
         flash('Você precisa estar logado para curtir!')
         return redirect(url_for('index'))
     publicacao = Comentarios.query.filter_by(id=id).first()
-    if Like.query.filter_by(user_id=usuario.id, tweet_id=id).first():
-        Like.query.filter_by(user_id=usuario.id, tweet_id=id).delete()
+    if Likes.query.filter_by(user_id=usuario.id, tweet_id=id).first():
+        Likes.query.filter_by(user_id=usuario.id, tweet_id=id).delete()
         if publicacao.qtd_likes is not None:
             publicacao.qtd_likes -= 1
         else:
             publicacao.qtd_likes = 0
     else:
-        like = Like(user_id=usuario.id, tweet_id=id)
+        likes = Likes(user_id=usuario.id, tweet_id=id)
         if publicacao.qtd_likes is not None:
             publicacao.qtd_likes += 1
         else:
             publicacao.qtd_likes = 1
-        db.session.add(like)
+        db.session.add(likes)
     db.session.commit()
     return 'None'
