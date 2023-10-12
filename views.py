@@ -37,10 +37,14 @@ def comentario(id):
 @app.route('/explorar', methods=['GET', 'POST'])
 def explorar():
     if 'pesquisa' in request.form:
-        pesquisa = request.form['pesquisa']
+        session['pesquisa'] = request.form['pesquisa']
     else:
-        pesquisa = ''
-    usuarios = Usuarios.query.filter(Usuarios.usuario.like(f"%{pesquisa}%")).all()
-    comentarios = Comentarios.query.filter(Comentarios.comentario.like(f"%{pesquisa}%")).all()
-    return render_template('explorar.html', user=user(), pesquisa=pesquisa, usuarios=usuarios, comentarios=comentarios, like=Likes)
+        session['pesquisa'] = ''
+    usuarios = Usuarios.query.filter(Usuarios.usuario.like(f"%{session['pesquisa']}%")).all()
+    comentarios = Comentarios.query.filter(Comentarios.comentario.like(f"%{session['pesquisa']}%")).all()
+    return render_template('explorar.html', user=user(), pesquisa=session['pesquisa'], usuarios=usuarios, comentarios=comentarios, like=Likes)
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html', user=user()), 404
     

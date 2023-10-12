@@ -12,9 +12,9 @@
     <section class="login">
         <h2>Login</h2>
         <form action="logar" method="post">
-            <input placeholder="EMAIL" type="email" name="email" id="email">
-            <input placeholder="SENHA" type="password" name="password" id="password">
-            <input type="submit" name="submit" id="submit" value="LOGAR">
+            <input required placeholder="EMAIL" type="email" name="email" id="email">
+            <input required placeholder="SENHA" type="password" name="password" id="password">
+            <input required type="submit" name="submit" id="submit" value="LOGAR">
         </form>
         <a href="autenticar?action=Cadastrar">Não tem uma conta? Clique aqui pra criar!</a>
     </section>
@@ -22,12 +22,12 @@
     <section class="cadastrar">
         <h2>Cadastrar</h2>
         <form action="cadastrar" method="post">
-            <input placeholder="NOME" type="text" name="nome" id="nome">
-            <input placeholder="USUARIO" type="text" name="usuario" id="usuario">
-            <input placeholder="EMAIL" type="email" name="email" id="email">
-            <input placeholder="SENHA" type="password" name="password" id="password">
-            <input placeholder="SENHA" type="password" name="password1" id="password1">
-            <input type="submit" name="submit" id="submit" value="CADASTRAR-SE">
+            <input required placeholder="NOME" type="text" name="nome" id="nome">
+            <input required placeholder="USUARIO" type="text" name="usuario" id="usuario">
+            <input required placeholder="EMAIL" type="email" name="email" id="email">
+            <input required placeholder="SENHA" type="password" name="password" id="password">
+            <input required placeholder="SENHA" type="password" name="password1" id="password1">
+            <input required type="submit" name="submit" id="submit" value="CADASTRAR-SE">
         </form>
         <a href="autenticar?action=Login">Já tem uma conta? Clique aqui pra logar!</a>
     </section>

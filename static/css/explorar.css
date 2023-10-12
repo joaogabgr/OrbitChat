@@ -37,6 +37,10 @@ section.secUsuario.oculto {
         margin-top: 10px;
     }
 
+        section.secUsuario .banner p {
+            margin-left: 10px;
+        }
+
 
 section.secComentarios {
     margin-bottom: var(--marginTop);
