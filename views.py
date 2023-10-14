@@ -10,18 +10,23 @@ def user():
 
 @app.route('/')
 def index():
+    action = request.args.get('action')
     usuario = user()
     comentarios = Comentarios.query.filter_by(resposta=None).order_by(Comentarios.id.desc())
     if usuario != None:
-        seguidores = Seguidor.query.filter_by(fk_id=usuario.id).all()
+        # Consulta 1: Comentarios dos seguidores
         filtro = Comentarios.query.filter(
             Comentarios.fk_id.in_([Seguidor.fk_id]),
             Comentarios.resposta.is_(None)
-            ).order_by(Comentarios.id.desc()).all()
-        filtroADD = Comentarios.query.filter_by(fk_id=usuario.id, resposta=None).order_by(Comentarios.id.desc()).all()
-        seguidoresComentarios = filtroADD + filtro
-        return render_template('index.html', comentarios=comentarios, seguidoresComentarios=seguidoresComentarios, user=user(), like=Likes)
-    return render_template('index.html', comentarios=comentarios, user=user(), like=Likes)
+        )
+
+        # Consulta 2: Comentarios do usuário
+        filtroADD = Comentarios.query.filter_by(fk_id=usuario.id, resposta=None)
+
+        # Combinação de resultados, remoção de duplicatas e ordenação por id
+        seguidoresComentarios = sorted(set(filtro.union(filtroADD)), key=lambda x: x.id, reverse=True)
+        return render_template('index.html', comentarios=comentarios, seguidoresComentarios=seguidoresComentarios, user=user(), like=Likes, action=action)
+    return render_template('index.html', comentarios=comentarios, user=user(), like=Likes, action=action)
 
 @app.route('/@<usuario>')
 def perfil(usuario):
