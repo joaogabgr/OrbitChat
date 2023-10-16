@@ -3,6 +3,13 @@
 {% block head %}
 <title>{{ comentario.fk_nome }} | OrbitChat</title>
 <link rel="stylesheet" href="../static/css/comentario.css">
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        secPublicar = document.querySelector('.secPublicar');
+        secPublicar.classList.add('ativar');
+        publicacao = document.querySelector('#publicacao').focus();
+    });
+</script>
 {% endblock %}
 
 {% block conteudo %}

@@ -1,3 +1,16 @@
+document.getElementById('inputFile').addEventListener('change', function() {
+  var file = this.files[0];
+  var reader = new FileReader();
+
+  reader.onload = function(e) {
+      var backgroundContainer = document.getElementById('backgroundContainer');
+      backgroundContainer.style.backgroundImage = "url('" + e.target.result + "')";
+  }
+
+  reader.readAsDataURL(file);
+});
+
+
 function seguir(id) {
   fetch('/seguir/' + id);
 }

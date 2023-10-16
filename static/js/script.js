@@ -10,6 +10,7 @@ barraPesquisa.addEventListener("click", function() {
   barraExplorar.classList.toggle("ativar");
 })
 
+
 function atualizarDados(id) {
   fetch('/curtir/' + id);
 }
@@ -34,6 +35,7 @@ let secPublicar = document.querySelector(".secPublicar");
 
 btnPost.addEventListener("click", function() {
   secPublicar.classList.toggle("ativar");
+  publicacao = document.querySelector('#publicacao').focus();
 })
 
 let btnEditarPerfil = document.querySelector(".btnEditarPerfil");
