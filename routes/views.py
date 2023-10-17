@@ -51,10 +51,10 @@ def comentario(id):
 
 @app.route('/explorar', methods=['GET', 'POST'])
 def explorar():
+
     if 'pesquisa' in request.form:
         session['pesquisa'] = request.form['pesquisa']
-    else:
-        session['pesquisa'] = ''
+
     usuarios = Usuarios.query.filter(Usuarios.usuario.like(f"%{session['pesquisa']}%")).all()
     comentarios = Comentarios.query.filter(Comentarios.comentario.like(f"%{session['pesquisa']}%")).all()
     return render_template('explorar.html', user=user(), pesquisa=session['pesquisa'], usuarios=usuarios, comentarios=comentarios, like=Likes)

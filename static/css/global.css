@@ -190,13 +190,13 @@ section.secComentarios h2 {
     margin-top: var(--marginTop);
 }
 
-section.secComentarios .banner {
+section.secComentarios .bannerComentario {
     border: var(--quaternario) 1px solid;
     padding: 10px;
     margin-bottom: 10px;
 }
 
-    section.secComentarios .banner .titulo {
+    section.secComentarios .bannerComentario .titulo {
         display: flex;
         font-size: 18px;
         font-weight: bold;
@@ -204,17 +204,17 @@ section.secComentarios .banner {
         cursor: pointer;
     }
 
-        section.secComentarios .banner .titulo i {
+        section.secComentarios .bannerComentario .titulo i {
             margin-right: 10px;
         }
 
-    section.secComentarios .banner .comentario {
+    section.secComentarios .bannerComentario .comentario {
         font-size: 16px;
         margin-bottom: 15px;
         text-align: justify;
     }
 
-    section.secComentarios .banner .infos {
+    section.secComentarios .bannerComentario .infos {
         display: flex;
         justify-content: space-between;
         font-size: 16px;

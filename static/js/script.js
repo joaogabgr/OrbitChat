@@ -8,6 +8,7 @@ let barraExplorar = document.querySelector(".barraExplorar");
 
 barraPesquisa.addEventListener("click", function() {
   barraExplorar.classList.toggle("ativar");
+  let pesquisa = document.querySelector("#pesquisa").focus()
 })
 
 
@@ -29,6 +30,9 @@ curtir.forEach(function(element, index) {
     curtida[index].classList.toggle("ativo");
   })
 })
+
+
+// ATIVAR O FOCUS QUANDO O FORM ABRIR
 
 let btnPost = document.querySelector(".btnPost");
 let secPublicar = document.querySelector(".secPublicar");
