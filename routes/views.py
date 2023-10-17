@@ -15,10 +15,18 @@ def index():
     comentarios = Comentarios.query.filter_by(resposta=None).order_by(Comentarios.id.desc())
     if usuario != None:
         # Consulta 1: Comentarios dos seguidores
+        # Obter todos os seguidores do usuário
+        seguidores = Seguidor.query.filter_by(user_email=usuario.email).all()
+
+        # Extrair os IDs dos seguidores
+        follower_ids = [seguidor.fk_id for seguidor in seguidores]
+
+        # Filtrar os comentários
         filtro = Comentarios.query.filter(
-            Comentarios.fk_id.in_([Seguidor.fk_id]),
+            Comentarios.fk_id.in_(follower_ids),
             Comentarios.resposta.is_(None)
         )
+
 
         # Consulta 2: Comentarios do usuário
         filtroADD = Comentarios.query.filter_by(fk_id=usuario.id, resposta=None)

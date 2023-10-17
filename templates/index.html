@@ -17,23 +17,23 @@
         <div class="btnComentarios">
             <p onclick="window.location = ''">Todos</p>
         </div>
-        {% for comentario in comentarios %}
-        {% include "secComentario.html" %}
-        {% endfor %}
+            {% for comentario in comentarios %}
+            {% include "secComentario.html" %}
+            {% endfor %}
         {% else %}
         <div class="btnComentarios">
             <p onclick="window.location = '/?action=seguindo'">Seguindo</p>
             <p onclick="window.location = '/?action=todos'">Todos</p>
         </div>
-        {% if action == 'seguindo' or action == None %}
-            {% for comentario in seguidoresComentarios %}
-            {% include "secComentario.html" %}
-            {% endfor %}
-        {% else %}
-            {% for comentario in comentarios %}
-            {% include "secComentario.html" %}
-            {% endfor %}
-            {% endif %}
+            {% if action == 'seguindo' or action == None %}
+                {% for comentario in seguidoresComentarios %}
+                {% include "secComentario.html" %}
+                {% endfor %}
+            {% else %}
+                {% for comentario in comentarios %}
+                {% include "secComentario.html" %}
+                {% endfor %}
+                {% endif %}
         {% endif %}
     </section>
 </main>

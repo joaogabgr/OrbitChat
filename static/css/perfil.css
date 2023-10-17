@@ -14,14 +14,14 @@ section.secUsuario {
             color: var(--quinary);
             position: relative;
             background-color: var(--principal);
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             padding: 3px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 20px 20px 0 0;
-            top: 27px;
+            top: 47px;
             margin-left: 10px;
         }
 
@@ -97,14 +97,14 @@ section.secEditarPerfil {
         color: var(--quinary);
         position: relative;
         background-color: var(--principal);
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         padding: 3px;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 20px 20px 0 0;
-        top: -123px;
+        top: -103px;
         margin-left: 10px;
         transition: 350ms;
     }
