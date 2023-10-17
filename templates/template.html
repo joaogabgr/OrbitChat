@@ -17,7 +17,11 @@
     <header>
         <a class="logo" href="/"><i class="fa-solid fa-earth-americas"></i>OrbitChat</a>
         <nav class="barraPesquisa">
-            <p><i class="fa-solid fa-magnifying-glass"></i>Explorar</p>
+            <i class="btnTeste fa-solid fa-magnifying-glass"></i>
+            <form id="formExplorar" action="explorar" method="post,get">
+                <input placeholder="EXPLORAR" type="text" name="pesquisa" id="pesquisa">
+                <i class="btnExplorar fa-solid fa-magnifying-glass"></i>
+            </form>
         </nav>
         {% if 'user' not in session or session['user'] == None %}
         <nav class="BarraAutenticar">
@@ -26,16 +30,13 @@
         </nav>
         {% else %}
         <nav class="BarraMenu">
-            <a href="@{{ user.usuario }}"><i class="fa-solid fa-users"></i>Perfil</a>
+            <a href="@{{ user.usuario }}">
+                <img src="{{ user.perfil }}" alt="Foto perfil">
+                {{ user.usuario }}
+            </a>
         </nav>
         {% endif %}
     </header>
-    <section class="barraExplorar">
-        <form action="explorar" method="post,get">
-            <input placeholder="BUSCAR" type="text" name="pesquisa" id="pesquisa">
-            <input type="submit" id="submit">
-        </form> 
-    </section>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul id="messages" class="list-unstyled">
@@ -62,5 +63,12 @@
         {% endblock %}
     <i class="btnPost fa-solid fa-pen-to-square"></i>
 </body>
-
+<script>
+    let imagem = document.querySelectorAll("#imagem")
+    imagem.forEach(element => {
+        element.onerror = function () {
+            element.src = "../static/img/perfil.svg";
+        };
+    });
+</script>
 </html>

@@ -3,7 +3,6 @@
 {% block head %}
 <title>Explorar | OrbitChat</title>
 <link rel="stylesheet" href="../static/css/explorar.css">
-<script src="../static/js/explorar.js" defer></script>
 {% endblock %}
 
 {% block conteudo %}
@@ -19,8 +18,11 @@
         {% else %}
         {% for usuario in usuarios %}
         <div onclick="window.location = '/@{{usuario.usuario}}'" class="banner">
-            <i class="fa-regular fa-user"></i>
-            <p>{{usuario.nome}}</p>
+            <div>
+                <img id="imagem" src="{{ usuario.perfil }}" alt="">
+                <p>{{usuario.nome}}</p>
+            </div>
+            <p>@{{usuario.usuario}}</p>
         </div>
         {% endfor %}
         {% endif %}

@@ -15,7 +15,7 @@ def publicar():
         flash('Você precisa estar logado para publicar!')
         return redirect(url_for('index'))
     publicacao = request.form['publicacao']
-    comentario = Comentarios(comentario=publicacao, fk_id=usuario.id, fk_nome=usuario.nome, fk_usuario=usuario.usuario)
+    comentario = Comentarios(comentario=publicacao, fk_id=usuario.id, fk_nome=usuario.nome, fk_usuario=usuario.usuario, fk_perfil=f'/static/uploads/perfil{usuario.id}.jpg')
     db.session.add(comentario)
     db.session.commit()
     flash('Publicação realizada com sucesso!')

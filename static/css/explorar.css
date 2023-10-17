@@ -32,12 +32,26 @@ section.secUsuario.oculto {
         padding: 10px;
         cursor: pointer;
         display: flex;
-        font-size: 17px;
-        font-weight: bold;
         margin-top: 10px;
-    }
+        display: flex;
+        flex-direction: column;
+        }
 
-        section.secUsuario .banner p {
+        section.secUsuario .banner img {
+           width: 40px;
+           height: 40px;
+           border-radius: 50%;
+        }
+
+        section.secUsuario .banner div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        section.secUsuario .banner div p {
             margin-left: 10px;
         }
 

@@ -3,15 +3,6 @@ function ajustarTamanho(element) {
     element.style.height = (25+element.scrollHeight)+"px";
   }
 
-let barraPesquisa = document.querySelector(".barraPesquisa");
-let barraExplorar = document.querySelector(".barraExplorar");
-
-barraPesquisa.addEventListener("click", function() {
-  barraExplorar.classList.toggle("ativar");
-  let pesquisa = document.querySelector("#pesquisa").focus()
-})
-
-
 function atualizarDados(id) {
   fetch('/curtir/' + id);
 }
@@ -31,6 +22,22 @@ curtir.forEach(function(element, index) {
   })
 })
 
+// DAR SUBMIT NO FORM DE PESQUISA 
+
+let formExplorar = document.querySelector("#formExplorar");
+let pesquisa = document.querySelector("#pesquisa");
+let btnExplorar = document.querySelector(".btnExplorar");
+let btnTeste = document.querySelector(".btnTeste");
+
+btnTeste.addEventListener("click", function() {
+  formExplorar.classList.toggle("ativar");
+  pesquisa.focus();
+  btnTeste.classList.toggle("ocultar");
+})
+
+btnExplorar.addEventListener("click", function() {
+  formExplorar.submit();
+})
 
 // ATIVAR O FOCUS QUANDO O FORM ABRIR
 
@@ -45,6 +52,7 @@ btnPost.addEventListener("click", function() {
 let btnEditarPerfil = document.querySelector(".btnEditarPerfil");
 let secEditarPerfil = document.querySelector(".secEditarPerfil");
 let closeEditarPerfil = document.querySelector(".closeEditarPerfil");
+
 
 btnEditarPerfil.addEventListener("click", function() {
   secEditarPerfil.classList.toggle("ativar");

@@ -3,15 +3,18 @@
 {% block head %}
 <title>Pagina inicial | OrbitChat</title>
 <link rel="stylesheet" href="../static/css/index.css">
-<script src="../static/js/script.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let publicacao = document.querySelector('#publicacao');
+        let secPublicar =  document.querySelector('.secPublicar');
+        secPublicar.classList.add('ativar');
+        publicacao.focus()
+    });
+</script>
 {% endblock %}
 
 {% block conteudo %}
 <main>
-    <section class="secBemvindo">
-        <h1>Bem vindo ao OrbitChat</h1>
-        <p>OrbitChat é uma rede social para você se conectar com seus amigos.</p>
-    </section>
     <section class="secComentarios">
         {% if user == None %}
         <div class="btnComentarios">

@@ -50,9 +50,11 @@ TABLES['Comentarios'] = ('''
       qtd_likes INT DEFAULT 0,
       comentario TEXT not null,
       data DATETIME DEFAULT CURRENT_TIMESTAMP,
+      fk_perfil VARCHAR(255) DEFAULT '/static/img/perfil.svg',
       foreign key (fk_id) references usuarios(id),
       foreign key (resposta) references comentarios(id),
-      foreign key (fk_usuario) references usuarios(usuario)
+      foreign key (fk_usuario) references usuarios(usuario),
+      foreign key (fk_perfil) references usuarios(perfil)
 )''')
 
 TABLES['Likes'] = ('''

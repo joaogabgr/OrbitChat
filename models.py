@@ -23,6 +23,7 @@ class Comentarios(db.Model):
     qtd_likes = db.Column(db.Integer, default=0)
     comentario = db.Column(db.Text, nullable=False)
     data = db.Column(db.DateTime(timezone=True), default=func.now())
+    fk_perfil = db.Column(db.String(255), default='/static/img/perfil.svg')
 
 class Likes(db.Model):
     id = db.Column(db.Integer, primary_key=True)

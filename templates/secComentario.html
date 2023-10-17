@@ -1,8 +1,11 @@
 {% block comentario %}
 <div class="bannerComentario">
     <div onclick="window.location = '/@{{comentario.fk_usuario}}'" class="titulo">
-        <i class="fa-regular fa-user"></i>
-        <p>{{ comentario.fk_nome }}</p>
+        <div>
+            <img id="imagem" src="{{ comentario.fk_perfil }}" alt="">
+            <p>{{ comentario.fk_nome }}</p>
+        </div>
+        <p>@{{ comentario.fk_usuario }}</p>
     </div>
     <div class="comentario">
         <p>{{ comentario.comentario}}</p>
@@ -16,11 +19,11 @@
             {% if user == None %}
             <i class="fa-regular fa-heart"></i>
             {% else %}
-                {% if like.query.filter_by(user_id=user.id, tweet_id=comentario.id).first() %}
-                <i class="curtida fa-regular fa-heart ativo"></i>
-                {% else %}
-                <i class="curtida fa-regular fa-heart"></i>
-                {% endif %}
+            {% if like.query.filter_by(user_id=user.id, tweet_id=comentario.id).first() %}
+            <i class="curtida fa-regular fa-heart ativo"></i>
+            {% else %}
+            <i class="curtida fa-regular fa-heart"></i>
+            {% endif %}
             {% endif %}
             <p class="qtdLikes">{{ comentario.qtd_likes }}</p>
         </div>

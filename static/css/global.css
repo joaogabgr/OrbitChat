@@ -13,7 +13,7 @@
 
     --respiroWidth: 0 10vw;
     --respiroHeight: 10px 0;
-    --respiroComentario: 0 20vw;
+    --respiroComentario: 0 25vw;
 
     --marginTop: 20px;
 }
@@ -37,7 +37,7 @@ body {
 /* HEADER */
 
 header {
-    padding: var(--respiroWidth);
+    padding: var(--respiroComentario);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,6 +65,8 @@ header {
         color: var(--secundario);
         margin-left:10px;
         font-size: 18px;
+        display: flex;
+        align-items: center;
         }
 
         header a:hover {
@@ -73,33 +75,54 @@ header {
 
         header i {
             margin-right: 10px;
+            font-size: 25px;
         }
 
+                header .BarraMenu a {
+                    display: flex;
+                    align-items: center;
+                }
 
-/* BARRA EXPLORAR */
-
-section.barraExplorar {
-    display: none;
-}
-
-section.barraExplorar.ativar {
-    display: flex;
-}
-
-    section.barraExplorar form {
-        flex-direction: row;
-        width: calc(100vw - 40vw);
-    }
-
-        section.barraExplorar input {
-            width: 90%;
-            margin-right: 10px;
+                header .BarraMenu img {
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    margin: 10px 10px 10px 0;
+                }
+        
+        header form {
+            display: none;
+            align-items: center;
+            justify-content: center;
         }
 
-        section.barraExplorar #submit {
-            width: 10%;
-            cursor: pointer;
+        header #formExplorar.ativar {
+            display: flex;
         }
+
+        header i.ocultar {
+            display: none;
+        }
+
+            header form input {
+                width: 100px;
+                margin: 0;
+                border: 1px solid var(--secundario);
+            }
+
+            header i {
+                margin-left: 10px;
+                color: var(--secundario);
+                cursor: pointer;
+            }
+
+        header .BarraAutenticar {
+            display: flex;
+        }
+
+            header .BarraAutenticar a {
+                margin: 0;
+            }
 
 
 /* BARRA DE POST */
@@ -181,7 +204,6 @@ section.secPublicar.ativar {
 /* BOX DE COMENTARIOS */
 
 section.secComentarios {
-border-top: var(--quaternario) 1px solid;
 margin-top: var(--marginTop);
 }
 
@@ -196,22 +218,35 @@ section.secComentarios .bannerComentario {
     margin-bottom: 10px;
 }
 
-    section.secComentarios .bannerComentario .titulo {
+    section.secComentarios .bannerComentario .titulo div {
         display: flex;
+        align-items: center;
         font-size: 18px;
         font-weight: bold;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         cursor: pointer;
     }
+
+        section.secComentarios .bannerComentario .titulo div img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
 
         section.secComentarios .bannerComentario .titulo i {
             margin-right: 10px;
         }
 
+    section.secComentarios .bannerComentario .titulo > p {
+        margin-bottom: 15px;
+    }
+
     section.secComentarios .bannerComentario .comentario {
         font-size: 16px;
         margin-bottom: 15px;
         text-align: justify;
+        word-wrap: break-word;
     }
 
     section.secComentarios .bannerComentario .infos {
@@ -272,6 +307,7 @@ section form {
         color: var(--secundario);
         margin-top: 10px;
         width: 30vw;
+        word-wrap: break-word;
     }
 
     form input:focus-visible {
