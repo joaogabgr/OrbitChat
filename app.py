@@ -7,10 +7,10 @@ app.config.from_pyfile('config.py')
 
 db = SQLAlchemy(app)
 
-from views import *
-from autenticar import *
-from publicar import *
-from perfil import *
+from routes.views import *
+from routes.autenticar import *
+from routes.publicar import *
+from routes.perfil import *
 
 with app.app_context():
     db.create_all()

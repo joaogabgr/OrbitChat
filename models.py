@@ -10,6 +10,8 @@ class Usuarios(db.Model):
     descricao = db.Column(db.String(255), default='Sem descrição')
     qtd_seguidores = db.Column(db.Integer, default=0)
     qtd_seguindo = db.Column(db.Integer, default=0)
+    banner = db.Column(db.String(255), default='/static/img/banner.jpg')
+    perfil = db.Column(db.String(255), default='/static/img/perfil.svg')
 
 class Comentarios(db.Model):
     id = db.Column(db.INTEGER, primary_key=True, index=True)

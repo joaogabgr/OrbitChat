@@ -57,3 +57,25 @@ def deseguir(usuario):
     else:
         flash('Você não segue esse usuário!')
         return redirect(url_for('index'))
+    
+# EDITAR PERFIL
+
+@app.route('/atualizarPerfil', methods=['POST'])
+def atualizarPerfil():
+    usuario = user()
+    
+    idUsuario = request.form['idUsuario']
+    if request.files['banner'].filename != '':
+        banner = request.files['banner']
+        banner.save(f'static/uploads/banner{idUsuario}.jpg')
+        usuario.banner = f'static/uploads/banner{idUsuario}.jpg'
+    
+    if request.files['perfil'].filename != '':
+        perfil = request.files['perfil']
+        perfil.save(f'static/uploads/perfil{idUsuario}.jpg')
+        usuario.perfil = f'static/uploads/perfil{idUsuario}.jpg'
+
+    usuario.nome = request.form['name']
+    usuario.descricao = request.form['descricao']
+    db.session.commit()
+    return redirect(url_for('perfil', usuario=usuario.usuario))

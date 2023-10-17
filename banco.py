@@ -34,6 +34,8 @@ TABLES['Usuarios'] = ('''
       senha VARCHAR(255) not null,
       qtd_seguidores INT DEFAULT 0,
       qtd_seguindo INT DEFAULT 0,
+      banner VARCHAR(255) DEFAULT '/static/img/banner.jpg',
+      perfil VARCHAR(255) DEFAULT '/static/img/perfil.svg',
       descricao VARCHAR(255) DEFAULT 'Sem descrição'        
 )''')
 

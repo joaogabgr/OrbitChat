@@ -40,16 +40,6 @@ def responder():
     return redirect(url_for('comentario', id=request.form['resposta']))
 
 
-# EDITAR PERFIL
-
-@app.route('/atualizarPerfil', methods=['POST'])
-def atualizarPerfil():
-    usuario = user()
-    usuario.nome = request.form['name']
-    usuario.descricao = request.form['descricao']
-    db.session.commit()
-    return redirect(url_for('perfil', usuario=usuario.usuario))
-
 # CURTIR COMENTARIO
 
 @app.route('/curtir/<id>', methods=['POST', 'GET'])

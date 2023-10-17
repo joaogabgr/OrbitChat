@@ -3,7 +3,6 @@ section.secUsuario {
 }
 
     section.secUsuario .banner {
-        background: url(../img/background.png);
         background-size: cover; /* Faz a imagem se ajustar à div */
         background-repeat: no-repeat; /* Evita repetição da imagem */
         background-position: center center; /* Centraliza a imagem na div */
@@ -11,18 +10,19 @@ section.secUsuario {
         height: 150px;
     }
 
-        section.secUsuario .banner i {
-            font-size: 50px;
+        section.secUsuario .banner img {
             color: var(--quinary);
             position: relative;
             background-color: var(--principal);
-            width: 75px;
-            height: 75px;
+            width: 120px;
+            height: 120px;
+            padding: 3px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50% 50% 0 0;
-            top: 75px;
+            border-radius: 20px 20px 0 0;
+            top: 27px;
+            margin-left: 10px;
         }
 
     section.secUsuario .userTitulo {
@@ -71,29 +71,48 @@ section.secEditarPerfil {
     align-items: center;
 }
 
-    section.secEditarPerfil .banner {
-        background: url(../img/background.png);
-        background-size: cover; /* Faz a imagem se ajustar à div */
-        background-repeat: no-repeat; /* Evita repetição da imagem */
-        background-position: center center; /* Centraliza a imagem na div */
-        width: 100%;
-        height: 150px;
-        margin-top: var(--marginTop);
+    section.secEditarPerfil .conteudoBanner {
+        height: 180px;
     }
 
-        section.secEditarPerfil .banner i {
-            font-size: 50px;
-            color: var(--quinary);
-            position: relative;
-            background-color: var(--principal);
-            width: 75px;
-            height: 75px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50% 50% 0 0;
-            top: 75px;
-        }
+    section.secEditarPerfil .banner {
+        position: relative;
+        background: url(../img/background.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: var(--respiroComentario);
+        height: 150px;
+        margin-top: var(--marginTop);
+        border: 3px solid var(--principal);
+        cursor: pointer;
+    }
+
+    section.secEditarPerfil .banner:hover {
+        border: 3px solid var(--quaternario);
+        transition: 350ms;
+    }
+
+    section.secEditarPerfil img {
+        color: var(--quinary);
+        position: relative;
+        background-color: var(--principal);
+        width: 120px;
+        height: 120px;
+        padding: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px 20px 0 0;
+        top: -123px;
+        margin-left: 10px;
+        transition: 350ms;
+    }
+
+    section.secEditarPerfil img:hover {
+        background-color: var(--quaternario);
+    }
+
 
 section.secEditarPerfil.ativar {
     display: flex;
@@ -113,4 +132,16 @@ section.secEditarPerfil.ativar {
     section.secEditarPerfil label {
         font-size: 16px;
         margin-top: var(--marginTop);
+    }
+
+    section.secEditarPerfil input, section.secEditarPerfil textarea {
+        width: calc(100% - 20px);
+    }
+
+    section.secEditarPerfil #submit {
+        width: calc(100% + 2px);
+    }
+
+    section.secEditarPerfil input[type=file] {
+        display: none;
     }
