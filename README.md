@@ -27,15 +27,11 @@ O OrbitChat é uma plataforma de rede social que se inspira no Twitter para forn
 - **Persistência de Dados:** Utilização de um banco de dados MySQL para armazenar informações de usuários e postagens.
 - **Pesquisa Avançada de Usuários e Mensagens:** Permita que os usuários pesquisem por palavras-chave, hashtags ou outros critérios para encontrar usuários e mensagens específicos.
 - **Perfil do Usuário Personalizado:** Permita que os usuários personalizem seus perfis com fotos, biografias e outras informações relevantes.
-- **Sistema de Hashtags e Trending Topics:** Permita que os usuários utilizem hashtags para categorizar suas postagens e vejam os tópicos mais populares.
+- **Sistema de Hashtags e Trending Topics:** Permita que os usuários utilizem hashtags para categorizar suas postagens e vejam os tópicos mais populares. (DEV)
 - **Sistema de Comentários:** Possibilidade de comentar em postagens e interagir com outros usuários.
-- **Sistema de Likes e Retweets:** Permita que os usuários curtam e compartilhem postagens de outros usuários.
+- **Sistema de Likes e Retweets:** Permita que os usuários curtam e compartilhem postagens de outros usuários. (DEV)
 - **Personalização do Feed:** Os usuários podem personalizar o conteúdo exibido em seu feed com base em suas preferências e quem estão seguindo.
-- **Mensagens Privadas:** Capacidade de enviar mensagens privadas para outros usuários.
-
-## Capturas de Tela
-
-_(Adicione capturas de tela do projeto aqui, se disponíveis)_
+- **Mensagens Privadas:** Capacidade de enviar mensagens privadas para outros usuários. (DEV)
 
 ## Configuração do Ambiente
 
@@ -44,40 +40,36 @@ Para configurar o ambiente e iniciar o projeto, siga os passos abaixo:
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/seu_usuario/orbit-chat.git .
+git clone https://github.com/joaogabgr/orbit-chat.git .
 ```
 
 2. Ative a maquina virtual:
 
 ```bash
 py -m venv venv
+.\venv\Scripts\activate
 ```
 
-3. Ativar a venv:
-
-```bash
-.\venv\Scripts\activate.bat
-```
-
-4. Baixar dependencias:
+3. Baixar dependencias:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Configure o banco de dados:
+4. Configure o banco de dados:
 
 ```bash
-Altere as informações no "Banco.py" e "Models.py" 
+Altere as informações de usuario no "config.py" 
 ```
 
-6. Rodar banco de dados:
+5. Inicar o banco de dados:
 
 ```bash
-python banco.py
+mysql -u SEU_USUARIO -p
+mysql -u SEU_USUARIO -p OrbitChat < Banco.sql
 ```
 
-7. Iniciar programa:
+6. Iniciar programa:
 
 ```bash
 python app.py
