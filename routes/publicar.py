@@ -18,7 +18,6 @@ def publicar():
     comentario = Comentarios(comentario=publicacao, fk_id=usuario.id, fk_nome=usuario.nome, fk_usuario=usuario.usuario, fk_perfil=f'/static/uploads/perfil{usuario.id}.jpg')
     db.session.add(comentario)
     db.session.commit()
-    flash('Publicação realizada com sucesso!')
     return redirect(url_for('index'))
 
 @app.route('/responder', methods=['POST',])
@@ -27,7 +26,7 @@ def responder():
     if usuario == None:
         flash('Você precisa estar logado para responder!')
         return redirect(url_for('index'))
-    comentario = Comentarios(fk_id=usuario.id, fk_nome=usuario.nome, comentario=request.form['publicacao'], resposta=request.form['resposta'], fk_usuario=usuario.usuario)
+    comentario = Comentarios(fk_id=usuario.id, fk_nome=usuario.nome, comentario=request.form['publicacao'], resposta=request.form['resposta'], fk_usuario=usuario.usuario, fk_perfil=f'/static/uploads/perfil{usuario.id}.jpg')
     publicacao = Comentarios.query.filter_by(id=request.form['resposta']).first()
     if publicacao.qtd_respostas is not None:
         publicacao.qtd_respostas += 1
@@ -36,7 +35,6 @@ def responder():
     db.session.add(publicacao)
     db.session.add(comentario)
     db.session.commit()
-    flash('Resposta realizada com sucesso!')
     return redirect(url_for('comentario', id=request.form['resposta']))
 
 
@@ -46,7 +44,6 @@ def responder():
 def curtir(id):
     usuario = user()
     if usuario == None:
-        flash('Você precisa estar logado para curtir!')
         return redirect(url_for('index'))
     publicacao = Comentarios.query.filter_by(id=id).first()
     if Likes.query.filter_by(user_id=usuario.id, tweet_id=id).first():

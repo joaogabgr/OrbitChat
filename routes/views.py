@@ -59,7 +59,9 @@ def comentario(id):
 
 @app.route('/explorar', methods=['GET', 'POST'])
 def explorar():
-
+    if 'user' not in session or session['user'] == None:
+        return redirect(url_for('autenticar'))
+    
     session['pesquisa'] = request.args.get('pesquisa')
 
     print(f'a pesquisa é: {session["pesquisa"]}')

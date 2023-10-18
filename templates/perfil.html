@@ -31,6 +31,7 @@
         </div>
         <p class="userUsuario">@{{ usuario.usuario }}</p>
         <p class="userBio">{{ usuario.descricao }}</p>
+        <p class="userBio">{{ usuario.profissao }}</p>
         <p class="userBio"><span class="qtd_seguidores">{{usuario.qtd_seguidores}}</span> Seguidores | {{
             usuario.qtd_seguindo }} Seguindo</p>
     </section>
@@ -51,6 +52,8 @@
             <input type="text" name="name" id="name" value="{{ usuario.nome }}">
             <label for="descricao">Descrição:</label>
             <textarea onkeyup="ajustarTamanho(this)" name="descricao" id="descricao">{{ usuario.descricao }}</textarea>
+            <label for="profissao">Profissão:</label>
+            <input type="text" name="profissao" id="profissao" value="{{ usuario.profissao }}">
             <input type="submit" id="submit">
         </form>
     </section>

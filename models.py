@@ -8,6 +8,7 @@ class Usuarios(db.Model):
     usuario = db.Column(db.String(15), nullable=False)
     senha = db.Column(db.String(255), nullable=False)
     descricao = db.Column(db.String(255), default='Sem descrição')
+    profissao = db.Column(db.String(255), default='Sem Profissão')
     qtd_seguidores = db.Column(db.Integer, default=0)
     qtd_seguindo = db.Column(db.Integer, default=0)
     banner = db.Column(db.String(255), default='/static/img/banner.jpg')

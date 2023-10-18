@@ -13,16 +13,12 @@ def seguir(usuario):
     seguir = Usuarios.query.filter_by(usuario=usuario).first()
     usuario = user()
     if seguir == None:
-        flash('Usuário não encontrado!')
         return redirect(url_for('index'))
     if usuario == None:
-        flash('Você precisa estar logado para seguir!')
         return redirect(url_for('index'))
     if usuario.id == seguir.id:
-        flash('Você não pode seguir a si mesmo!')
         return redirect(url_for('index'))
     if Seguidor.query.filter_by(user_email=usuario.email, fk_id=seguir.id).first():
-        flash('Você já segue esse usuário!')
         return redirect(url_for('index'))
     else:
         seguidor = Seguidor(user_email=usuario.email, fk_id=seguir.id)
@@ -38,13 +34,10 @@ def deseguir(usuario):
     deseguir = Usuarios.query.filter_by(usuario=usuario).first()
     usuario = user()
     if usuario == None:
-        flash('Usuário não encontrado!')
         return redirect(url_for('index'))
     if usuario == None:
-        flash('Você precisa estar logado para deseguir!')
         return redirect(url_for('index'))
     if usuario.id == deseguir.id:
-        flash('Você não pode deseguir a si mesmo!')
         return redirect(url_for('index'))
     if Seguidor.query.filter_by(user_email=usuario.email, fk_id=deseguir.id).first():
         seguidor = Seguidor.query.filter_by(user_email=usuario.email, fk_id=deseguir.id).first()
@@ -55,7 +48,6 @@ def deseguir(usuario):
         db.session.commit()
         return redirect(url_for('index'))
     else:
-        flash('Você não segue esse usuário!')
         return redirect(url_for('index'))
     
 # EDITAR PERFIL
@@ -77,5 +69,6 @@ def atualizarPerfil():
 
     usuario.nome = request.form['name']
     usuario.descricao = request.form['descricao']
+    usuario.profissao = request.form['profissao']
     db.session.commit()
     return redirect(url_for('perfil', usuario=usuario.usuario))

@@ -7,7 +7,7 @@ try:
       conn = mysql.connector.connect(
             host='127.0.0.1',
             user='root',
-            password='2412'
+            password='fatec'
       )
 except mysql.connector.Error as err:
       if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -36,7 +36,8 @@ TABLES['Usuarios'] = ('''
       qtd_seguindo INT DEFAULT 0,
       banner VARCHAR(255) DEFAULT '/static/img/banner.jpg',
       perfil VARCHAR(255) DEFAULT '/static/img/perfil.svg',
-      descricao VARCHAR(255) DEFAULT 'Sem descrição'        
+      descricao VARCHAR(255) DEFAULT 'Sem descrição',
+      profissao VARCHAR(255) DEFAULT 'Sem profissão'
 )''')
 
 TABLES['Comentarios'] = ('''

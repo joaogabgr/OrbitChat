@@ -1,5 +1,6 @@
 section.secUsuario {
     margin-top: var(--marginTop);
+    
 }
 
     section.secUsuario .banner {
@@ -16,12 +17,13 @@ section.secUsuario {
             background-color: var(--principal);
             width: 100px;
             height: 100px;
-            padding: 3px;
+            border: 1px solid var(--quaternario);    
+            border-bottom: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 20px 20px 0 0;
-            top: 47px;
+            
+            top: 49px;
             margin-left: 10px;
         }
 
@@ -103,7 +105,7 @@ section.secEditarPerfil {
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 20px 20px 0 0;
+        
         top: -103px;
         margin-left: 10px;
         transition: 350ms;

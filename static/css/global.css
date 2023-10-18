@@ -16,6 +16,7 @@
     --respiroComentario: 0 25vw;
 
     --marginTop: 20px;
+    --border: 10px;
 }
 
 body {
@@ -86,8 +87,9 @@ header {
                 header .BarraMenu img {
                     width: 45px;
                     height: 45px;
-                    border-radius: 50%;
+                    
                     margin: 10px 10px 10px 0;
+                    border: 1px solid var(--quaternario);
                 }
         
         header form {
@@ -105,9 +107,8 @@ header {
         }
 
             header form input {
-                width: 100px;
+                width: 200px;
                 margin: 0;
-                border: 1px solid var(--secundario);
             }
 
             header i {
@@ -223,15 +224,16 @@ section.secComentarios .bannerComentario {
         align-items: center;
         font-size: 18px;
         font-weight: bold;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         cursor: pointer;
     }
 
         section.secComentarios .bannerComentario .titulo div img {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            
             margin-right: 10px;
+            border: 1px solid var(--quaternario);
         }
 
         section.secComentarios .bannerComentario .titulo i {
@@ -376,7 +378,6 @@ footer {
     padding: 10px;
     width: 30px;
     height: 30px;
-    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
