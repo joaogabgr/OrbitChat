@@ -65,8 +65,7 @@ Altere as informações de usuario no "config.py"
 5. Inicar o banco de dados:
 
 ```bash
-mysql -u SEU_USUARIO -p
-mysql -u SEU_USUARIO -p OrbitChat < Banco.sql
+mysql -u root -p < Banco.sql
 ```
 
 6. Iniciar programa:
