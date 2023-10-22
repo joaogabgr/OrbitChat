@@ -18,12 +18,10 @@ def seguir(usuario):
         return redirect(url_for('index'))
     if usuario.id == seguir.id:
         return redirect(url_for('index'))
-    if Seguidor.query.filter_by(user_email=usuario.email, fk_id=seguir.id).first():
+    if Seguidor.query.filter_by(fk_seguidor=usuario.id, fk_seguindo=seguir.id).first():
         return redirect(url_for('index'))
     else:
-        seguidor = Seguidor(user_email=usuario.email, fk_id=seguir.id)
-        seguir.qtd_seguidores += 1
-        usuario.qtd_seguindo += 1
+        seguidor = Seguidor(fk_seguidor=usuario.id, fk_seguindo=seguir.id)
     db.session.add(usuario)
     db.session.add(seguidor)
     db.session.commit()
@@ -39,10 +37,8 @@ def deseguir(usuario):
         return redirect(url_for('index'))
     if usuario.id == deseguir.id:
         return redirect(url_for('index'))
-    if Seguidor.query.filter_by(user_email=usuario.email, fk_id=deseguir.id).first():
-        seguidor = Seguidor.query.filter_by(user_email=usuario.email, fk_id=deseguir.id).first()
-        deseguir.qtd_seguidores -= 1
-        usuario.qtd_seguindo -= 1
+    if Seguidor.query.filter_by(fk_seguidor=usuario.id, fk_seguindo=deseguir.id).first():
+        seguidor = Seguidor.query.filter_by(fk_seguidor=usuario.id, fk_seguindo=deseguir.id).first()
         db.session.delete(seguidor)
         db.session.add(usuario)
         db.session.commit()

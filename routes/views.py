@@ -16,18 +16,16 @@ def index():
     if usuario != None:
         # Consulta 1: Comentarios dos seguidores
         # Obter todos os seguidores do usuário
-        seguidores = Seguidor.query.filter_by(user_email=usuario.email).all()
+        seguidores = Seguidor.query.filter_by(fk_seguidor=usuario.id).all()
 
         # Extrair os IDs dos seguidores
-        follower_ids = [seguidor.fk_id for seguidor in seguidores]
+        follower_ids = [seguidor.fk_seguindo for seguidor in seguidores]
 
         # Filtrar os comentários
         filtro = Comentarios.query.filter(
             Comentarios.fk_id.in_(follower_ids),
             Comentarios.resposta.is_(None)
         )
-
-
         # Consulta 2: Comentarios do usuário
         filtroADD = Comentarios.query.filter_by(fk_id=usuario.id, resposta=None)
 
@@ -43,13 +41,15 @@ def perfil(usuario):
     else:
         flash('Usuário não encontrado!')
         return redirect(url_for('index'))
+    seguidores = len(Seguidor.query.filter_by(fk_seguindo=usuario.id).all())
+    seguindo = len(Seguidor.query.filter_by(fk_seguidor=usuario.id).all())
     comentarios = Comentarios.query.filter_by(resposta=None, fk_usuario=usuario.usuario).order_by(Comentarios.id.desc())
     respostas = Comentarios.query.filter(
     Comentarios.resposta.isnot(None),
     Comentarios.fk_usuario == usuario.usuario
     ).order_by(Comentarios.id.desc()).all()
     action = request.args.get('action')
-    return render_template('perfil.html', action=action, respostas=respostas, comentarios=comentarios, user=user(), usuario=usuario, like=Likes, seguidor=Seguidor)
+    return render_template('perfil.html', action=action, respostas=respostas, comentarios=comentarios, user=user(), usuario=usuario, like=Likes, seguidor=Seguidor ,seguidores=seguidores, seguindo=seguindo)
 
 @app.route('/!<id>')
 def comentario(id):

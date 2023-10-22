@@ -9,8 +9,6 @@ class Usuarios(db.Model):
     senha = db.Column(db.String(255), nullable=False)
     descricao = db.Column(db.String(255), default='Sem descrição')
     profissao = db.Column(db.String(255), default='Sem Profissão')
-    qtd_seguidores = db.Column(db.Integer, default=0)
-    qtd_seguindo = db.Column(db.Integer, default=0)
     banner = db.Column(db.String(255), default='/static/img/banner.jpg')
     perfil = db.Column(db.String(255), default='/static/img/perfil.svg')
 
@@ -33,5 +31,5 @@ class Likes(db.Model):
 
 class Seguidor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_email = db.Column(db.String(255), db.ForeignKey('usuarios.email'), nullable=False)
-    fk_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)
+    fk_seguindo = db.Column(db.String(255), db.ForeignKey('usuarios.id'), nullable=False)
+    fk_seguidor = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)

@@ -21,7 +21,7 @@
             {% if user == None %}
             <button>Seguir</button>
             {% else %}
-            {% if seguidor.query.filter_by(user_email=user.email, fk_id=usuario.id).first() == None %}
+            {% if seguidor.query.filter_by(fk_seguidor=user.id, fk_seguindo=usuario.id).first() == None %}
             <button class="seguir">Seguir</button>
             {% else %}
             <button class="seguir seguindo">Seguindo</button>
@@ -32,8 +32,7 @@
         <p class="userUsuario">@{{ usuario.usuario }}</p>
         <p class="userBio">{{ usuario.descricao }}</p>
         <p class="userBio">{{ usuario.profissao }}</p>
-        <p class="userBio"><span class="qtd_seguidores">{{usuario.qtd_seguidores}}</span> Seguidores | {{
-            usuario.qtd_seguindo }} Seguindo</p>
+        <p class="userBio"><span class="qtd_seguidores">{{ seguidores }}</span> Seguidores | {{ seguindo }} Seguindo</p>
     </section>
     <section class="secEditarPerfil">
         <form action="atualizarPerfil" method="post" enctype="multipart/form-data">

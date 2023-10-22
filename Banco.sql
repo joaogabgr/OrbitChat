@@ -1,3 +1,4 @@
+-- Active: 1697973228925@@127.0.0.1@3306@orbitchat
 -- Criar o banco de dados OrbitChat
 -- Exclui o banco de dados se ele já existir
 DROP DATABASE IF EXISTS OrbitChat;
@@ -11,8 +12,6 @@ CREATE TABLE Usuarios (
   email VARCHAR(255) PRIMARY KEY,
   nome VARCHAR(255) NOT NULL,
   senha VARCHAR(255) NOT NULL,
-  qtd_seguidores INT DEFAULT 0,
-  qtd_seguindo INT DEFAULT 0,
   banner VARCHAR(255) DEFAULT '/static/img/banner.jpg',
   perfil VARCHAR(255) DEFAULT '/static/img/perfil.svg',
   descricao VARCHAR(255) DEFAULT 'Sem descrição',
@@ -48,8 +47,8 @@ CREATE TABLE likes (
 -- Criar a tabela Seguidor
 CREATE TABLE Seguidor (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  user_email VARCHAR(255) NOT NULL,
-  fk_id INT NOT NULL,
-  FOREIGN KEY (user_email) REFERENCES Usuarios(email),
-  FOREIGN KEY (fk_id) REFERENCES Usuarios(id)
+  fk_seguidor INT NOT NULL,
+  fk_seguindo INT NOT NULL,
+  FOREIGN KEY (fk_seguidor) REFERENCES Usuarios(id),
+  FOREIGN KEY (fk_seguindo) REFERENCES Usuarios(id)
 );

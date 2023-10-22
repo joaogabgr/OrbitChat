@@ -41,7 +41,7 @@ section.secUsuario.oculto {
            width: 40px;
            height: 40px;
            
-           border: 2px solid var(--quaternario);
+           border: 1px solid var(--quaternario);
         }
 
         section.secUsuario .banner div {
