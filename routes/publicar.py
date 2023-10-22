@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from app import app, db
-from models import Usuarios, Comentarios, Likes
+from models import Usuarios, Comentarios, Likes, Retweet
 
 def user():
     if 'user' not in session or session['user'] == None:
@@ -59,5 +59,23 @@ def curtir(id):
         else:
             publicacao.qtd_likes = 1
         db.session.add(likes)
+    db.session.commit()
+    return 'None'
+
+# RETWEETAR COMENTARIO
+
+@app.route('/retweetar/<id>', methods=['POST', 'GET'])
+def retweetar(id):
+    usuario = user()
+    if usuario == None:
+        return redirect(url_for('index'))
+    publicacao = Comentarios.query.filter_by(id=id).first()
+    if Retweet.query.filter_by(fk_retweet=usuario.id, fk_comentarioID=id).first():
+        Retweet.query.filter_by(fk_retweet=usuario.id, fk_comentarioID=id).delete()
+        publicacao.qtd_retweets -= 1
+    else:
+        retweet = Retweet(fk_retweet=usuario.id, fk_comentarioID=id, fk_usuarioID=publicacao.fk_id)
+        publicacao.qtd_retweets += 1
+        db.session.add(retweet)
     db.session.commit()
     return 'None'

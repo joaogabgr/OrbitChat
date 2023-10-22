@@ -27,6 +27,7 @@ CREATE TABLE Comentarios (
   resposta INT,
   qtd_respostas INT DEFAULT 0,
   qtd_likes INT DEFAULT 0,
+  qtd_retweets INT DEFAULT 0,
   comentario TEXT NOT NULL,
   data DATETIME DEFAULT CURRENT_TIMESTAMP,
   fk_perfil VARCHAR(255) DEFAULT '/static/img/perfil.svg',
@@ -51,4 +52,14 @@ CREATE TABLE Seguidor (
   fk_seguindo INT NOT NULL,
   FOREIGN KEY (fk_seguidor) REFERENCES Usuarios(id),
   FOREIGN KEY (fk_seguindo) REFERENCES Usuarios(id)
+);
+
+CREATE TABLE Retweet (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  fk_retweet INT NOT NULL,
+  fk_comentarioID INT NOT NULL,
+  fk_usuarioID INT NOT NULL,
+  FOREIGN KEY (fk_retweet) REFERENCES Usuarios(id),
+  FOREIGN KEY (fk_comentarioID) REFERENCES Comentarios(id),
+  FOREIGN KEY (fk_usuarioID) REFERENCES Comentarios(fk_id)
 );

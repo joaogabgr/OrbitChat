@@ -272,6 +272,10 @@ section.secComentarios .bannerComentario {
                     color: var(--terciario);
                 }
 
+                section.secComentarios .infos .retweetado{
+                    color: var(--terciario);
+                }
+
             section.secComentarios .infos div:hover {
                 color: var(--quinary);
             }

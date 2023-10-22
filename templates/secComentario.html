@@ -15,21 +15,29 @@
             <i class="fa-regular fa-comment"></i>
             <p>{{ comentario.qtd_respostas }}</p>
         </div>
-        <div class="curtir" onclick="atualizarDados('{{comentario.id}}')">
+        <div class="curtir" onclick="atualizarCurtir('{{comentario.id}}')">
             {% if user == None %}
             <i class="fa-regular fa-heart"></i>
             {% else %}
-            {% if like.query.filter_by(user_id=user.id, tweet_id=comentario.id).first() %}
-            <i class="curtida fa-regular fa-heart ativo"></i>
-            {% else %}
-            <i class="curtida fa-regular fa-heart"></i>
-            {% endif %}
+                {% if like.query.filter_by(user_id=user.id, tweet_id=comentario.id).first() %}
+                <i class="curtida fa-regular fa-heart ativo"></i>
+                {% else %}
+                <i class="curtida fa-regular fa-heart"></i>
+                {% endif %}
             {% endif %}
             <p class="qtdLikes">{{ comentario.qtd_likes }}</p>
         </div>
-        <div>
+        <div onclick="atualizarRT('{{comentario.id}}')">
+            {% if user == None %}
             <i class="fa-solid fa-retweet"></i>
-            <p>{{ comentario.compartilhamentos }}</p>
+            {% else %}
+                {% if retweet.query.filter_by(fk_retweet=user.id, fk_comentarioID=comentario.id).first() %}
+                <i class="rt retweetado fa-solid fa-retweet"></i>
+                {% else %}
+                <i class="rt fa-solid fa-retweet"></i>
+                {% endif %}
+            {% endif %}
+            <p class="qtdRT">{{ comentario.qtd_retweets }}</p>
         </div>
         <div class="data">
             {% if comentario.data %}

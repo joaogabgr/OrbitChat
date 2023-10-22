@@ -3,7 +3,9 @@ function ajustarTamanho(element) {
     element.style.height = (25+element.scrollHeight)+"px";
   }
 
-function atualizarDados(id) {
+// FUNÇÃO DE CURTIR COMENTARIOS
+
+function atualizarCurtir(id) {
   fetch('/curtir/' + id);
 }
 
@@ -19,6 +21,27 @@ curtir.forEach(function(element, index) {
       qtdLikes[index].innerHTML = eval(qtdLikes[index].innerHTML) + 1;
     }
     curtida[index].classList.toggle("ativo");
+  })
+})
+
+// FUNÇÃO DE RETWEETAR COMENTARIOS
+
+function atualizarRT(id) {
+  fetch('/retweetar/' + id);
+}
+
+let retweet = document.querySelectorAll(".rt");
+let retweetado = document.querySelectorAll(".retweetado");
+let qtdRT = document.querySelectorAll(".qtdRT");
+
+retweet.forEach(function(element, index) {
+  element.addEventListener("click", function() {
+    if (retweet[index].classList.contains("retweetado")) {
+      qtdRT[index].innerHTML = eval(qtdRT[index].innerHTML) - 1;
+    } else {
+      qtdRT[index].innerHTML = eval(qtdRT[index].innerHTML) + 1;
+    }
+    retweet[index].classList.toggle("retweetado");
   })
 })
 
