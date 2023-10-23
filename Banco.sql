@@ -25,6 +25,7 @@ CREATE TABLE Comentarios (
   fk_nome VARCHAR(255) NOT NULL,
   fk_usuario VARCHAR(15) NOT NULL,
   resposta INT,
+  retweet VARCHAR(15),
   qtd_respostas INT DEFAULT 0,
   qtd_likes INT DEFAULT 0,
   qtd_retweets INT DEFAULT 0,

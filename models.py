@@ -18,6 +18,7 @@ class Comentarios(db.Model):
     fk_nome = db.Column(db.String(255), nullable=False)
     fk_usuario = db.Column(db.String(15), nullable=False)
     resposta = db.Column(db.Integer, nullable=True)
+    retweet = db.Column(db.String(15), nullable=True)
     qtd_respostas = db.Column(db.Integer, default=0)
     qtd_likes = db.Column(db.Integer, default=0)
     qtd_retweets = db.Column(db.Integer, default=0)

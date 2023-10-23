@@ -77,5 +77,8 @@ def retweetar(id):
         retweet = Retweet(fk_retweet=usuario.id, fk_comentarioID=id, fk_usuarioID=publicacao.fk_id)
         publicacao.qtd_retweets += 1
         db.session.add(retweet)
+
+        comentario = Comentarios(comentario=publicacao.comentario, fk_id=usuario.id, retweet=usuario.usuario , fk_nome=publicacao.fk_nome, fk_usuario=publicacao.fk_usuario, fk_perfil=f'/static/uploads/perfil{publicacao.fk_id}.jpg')
+        db.session.add(comentario)
     db.session.commit()
     return 'None'

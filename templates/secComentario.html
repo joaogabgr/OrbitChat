@@ -5,7 +5,12 @@
             <img id="imagem" src="{{ comentario.fk_perfil }}" alt="">
             <p>{{ comentario.fk_nome }}</p>
         </div>
+        {% if comentario.retweet == None %}
         <p>@{{ comentario.fk_usuario }}</p>
+        {% else %}
+        <p>@{{ comentario.fk_usuario }}</p>
+        <p><i class="rt fa-solid fa-retweet"></i>@{{ comentario.retweet }}</p>
+        {% endif %}
     </div>
     <div class="comentario">
         <p>{{ comentario.comentario}}</p>
