@@ -9,7 +9,7 @@
         <p>@{{ comentario.fk_usuario }}</p>
         {% else %}
         <p>@{{ comentario.fk_usuario }}</p>
-        <p><i class="rt fa-solid fa-retweet"></i>@{{ comentario.retweet }}</p>
+        <a href="/@{{ comentario.retweet }}"><i class="rt fa-solid fa-retweet"></i>@{{ comentario.retweet }}</a>
         {% endif %}
     </div>
     <div class="comentario">
@@ -36,7 +36,7 @@
             {% if user == None %}
             <i class="fa-solid fa-retweet"></i>
             {% else %}
-                {% if retweet.query.filter_by(fk_retweet=user.id, fk_comentarioID=comentario.id).first() %}
+                {% if comentar.query.filter_by(retweet=user.usuario, id_retweet=comentario.id).first() %}
                 <i class="rt retweetado fa-solid fa-retweet"></i>
                 {% else %}
                 <i class="rt fa-solid fa-retweet"></i>

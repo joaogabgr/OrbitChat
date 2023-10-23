@@ -19,6 +19,7 @@ class Comentarios(db.Model):
     fk_usuario = db.Column(db.String(15), nullable=False)
     resposta = db.Column(db.Integer, nullable=True)
     retweet = db.Column(db.String(15), nullable=True)
+    id_retweet = db.Column(db.Integer, nullable=True)
     qtd_respostas = db.Column(db.Integer, default=0)
     qtd_likes = db.Column(db.Integer, default=0)
     qtd_retweets = db.Column(db.Integer, default=0)
@@ -35,9 +36,3 @@ class Seguidor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fk_seguindo = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)
     fk_seguidor = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)
-
-class Retweet(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    fk_retweet = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)
-    fk_comentarioID = db.Column(db.Integer, db.ForeignKey('comentarios.id'), nullable=False)
-    fk_usuarioID = db.Column(db.Integer, db.ForeignKey('comentarios.fk_id'), nullable=False)

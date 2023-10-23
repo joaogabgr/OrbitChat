@@ -240,14 +240,20 @@ section.secComentarios .bannerComentario {
             margin-right: 10px;
         }
 
+        section.secComentarios .bannerComentario .titulo a{
+            color: var(--quinary);
+            display: flex;
+            align-items: center;
+        }
 
     section.secComentarios .bannerComentario .titulo > p {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        cursor: pointer;
     }
 
     section.secComentarios .bannerComentario .comentario {
         font-size: 16px;
-        margin-bottom: 15px;
+        margin: 15px 0;
         text-align: justify;
         word-wrap: break-word;
     }

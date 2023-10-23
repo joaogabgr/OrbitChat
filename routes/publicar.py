@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from app import app, db
-from models import Usuarios, Comentarios, Likes, Retweet
+from models import Usuarios, Comentarios, Likes
 
 def user():
     if 'user' not in session or session['user'] == None:
@@ -70,15 +70,14 @@ def retweetar(id):
     if usuario == None:
         return redirect(url_for('index'))
     publicacao = Comentarios.query.filter_by(id=id).first()
-    if Retweet.query.filter_by(fk_retweet=usuario.id, fk_comentarioID=id).first():
-        Retweet.query.filter_by(fk_retweet=usuario.id, fk_comentarioID=id).delete()
+    if Comentarios.query.filter_by(retweet=usuario.usuario, id_retweet=id).first():
         publicacao.qtd_retweets -= 1
+        comentario = Comentarios.query.filter_by(retweet=usuario.usuario, id_retweet=id).first()
+        db.session.delete(comentario)
     else:
-        retweet = Retweet(fk_retweet=usuario.id, fk_comentarioID=id, fk_usuarioID=publicacao.fk_id)
         publicacao.qtd_retweets += 1
-        db.session.add(retweet)
 
-        comentario = Comentarios(comentario=publicacao.comentario, fk_id=usuario.id, retweet=usuario.usuario , fk_nome=publicacao.fk_nome, fk_usuario=publicacao.fk_usuario, fk_perfil=f'/static/uploads/perfil{publicacao.fk_id}.jpg')
+        comentario = Comentarios(comentario=publicacao.comentario, fk_id=usuario.id, id_retweet=publicacao.id, retweet=usuario.usuario , fk_nome=publicacao.fk_nome, fk_usuario=publicacao.fk_usuario, fk_perfil=f'/static/uploads/perfil{publicacao.fk_id}.jpg')
         db.session.add(comentario)
     db.session.commit()
     return 'None'
