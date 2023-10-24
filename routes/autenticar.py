@@ -18,15 +18,27 @@ def logar():
     email = request.form['email']
     senha = request.form['password']
 
-    if not Usuarios.query.filter_by(email=email).first():
-        flash('Email não cadastrado!')
-        return redirect(url_for('autenticar', action='Cadastrar'))
-    elif Usuarios.query.filter_by(email=email).first().senha != senha:
-        flash('Senha incorreta!')
-        return redirect(url_for('autenticar', action='Login'))
+    if '@' in email:
+        if not Usuarios.query.filter_by(email=email).first():
+            flash('Email não cadastrado!')
+            return redirect(url_for('autenticar', action='Cadastrar'))
+        elif Usuarios.query.filter_by(email=email).first().senha != senha:
+            flash('Senha incorreta!')
+            return redirect(url_for('autenticar', action='Login'))
+        else:
+            session['user'] = email
+            return redirect(url_for('index'))
     else:
-        session['user'] = email
-        return redirect(url_for('index'))
+        if not Usuarios.query.filter_by(usuario=email).first():
+            flash('Email não cadastrado!')
+            return redirect(url_for('autenticar', action='Cadastrar'))
+        elif Usuarios.query.filter_by(usuario=email).first().senha != senha:
+            flash('Senha incorreta!')
+            return redirect(url_for('autenticar', action='Login'))
+        else:
+            session['user'] = Usuarios.query.filter_by(usuario=email).first().email
+            return redirect(url_for('index'))
+
 
 @app.route('/logout')
 def logout():

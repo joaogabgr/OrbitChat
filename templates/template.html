@@ -25,8 +25,8 @@
         </nav>
         {% if 'user' not in session or session['user'] == None %}
         <nav class="BarraAutenticar">
-            <a href="autenticar?action=Login"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
-            <a href="autenticar?action=Cadastrar"><i class="fa-solid fa-arrow-right-from-bracket"></i>Cadastro</a>
+            <a href="autenticar?action=Login">Login</a>
+            <a href="autenticar?action=Cadastrar">Cadastro</a>
         </nav>
         {% else %}
         <nav class="BarraMenu">
@@ -62,6 +62,7 @@
 
         {% endblock %}
     <i class="btnPost fa-solid fa-pen-to-square"></i>
+    <a href="/logout"><i class="btnLogout fa-solid fa-arrow-right-from-bracket"></i></a>
 </body>
 <script>
     let imagem = document.querySelectorAll("#imagem")

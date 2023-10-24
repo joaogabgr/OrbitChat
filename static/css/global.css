@@ -38,6 +38,7 @@ body {
 /* HEADER */
 
 header {
+    height: 65px;
     padding: var(--respiroComentario);
     display: flex;
     justify-content: space-between;
@@ -120,11 +121,6 @@ header {
         header .BarraAutenticar {
             display: flex;
         }
-
-            header .BarraAutenticar a {
-                margin: 0;
-            }
-
 
 /* BARRA DE POST */
 
@@ -404,4 +400,37 @@ footer {
     color: var(--quaternario);
     background-color: var(--secundario);
     transition: 350ms;
+}
+
+/* BTN LOGOUT */
+
+.btnLogout {
+    color: var(--secundario);
+    /* padding: 10px; */
+    min-width: 60px;
+    min-height: 60px;
+    margin-top: 3px;
+    display: flex;
+    align-items: cnter;
+    justify-content: center;
+    position: fixed;    
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    transition: 350ms;
+    font-size: 20px;
+    align-items: center;
+}
+
+.btnLogout:hover {
+    transition: 350ms;
+    padding-right: 20px;
+}
+
+.btnLogout:hover::after {
+    content: 'Logout';
+    font-weight: 0;
+    font-size: 15px;
+    margin-top: 2.5px;
+    margin-left: 10px;
 }
