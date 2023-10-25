@@ -18,7 +18,6 @@
     <section class="secComentarios">
         {% if user == None %}
         <div class="btnComentarios">
-            <p onclick="window.location = ''">Todos</p>
         </div>
             {% for comentario in comentarios %}
             {% include "secComentario.html" %}
