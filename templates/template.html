@@ -16,19 +16,19 @@
 <body>
     <header>
         <a class="logo" href="/"><i class="fa-solid fa-earth-americas"></i>OrbitChat</a>
-        <nav class="barraPesquisa">
-            <i class="btnTeste fa-solid fa-magnifying-glass"></i>
-            <form id="formExplorar" action="explorar" method="post,get">
-                <input placeholder="EXPLORAR" type="text" name="pesquisa" id="pesquisa">
-                <i class="btnExplorar fa-solid fa-magnifying-glass"></i>
-            </form>
-        </nav>
         {% if 'user' not in session or session['user'] == None %}
         <nav class="BarraAutenticar">
             <a href="autenticar?action=Login">Login</a>
             <a href="autenticar?action=Cadastrar">Cadastro</a>
         </nav>
         {% else %}
+        <nav class="barraPesquisa">
+            <i class="btnTeste fa-solid fa-magnifying-glass"></i>
+            <form id="formExplorar" action="explorar" method="post,get">
+                <input placeholder="EXPLORAR" type="text" name="pesquisa" id="pesquisa">
+                <i class="btnExplorar fa-solid fa-magnifying-glass"></i>
+            </form>
+        </nav> 
         <nav class="BarraMenu">
             <a href="@{{ user.usuario }}">
                 <img src="{{ user.perfil }}" alt="Foto perfil">
@@ -46,6 +46,8 @@
         </ul>
     {% endif %}
     {% endwith %}
+    {% if 'user' not in session or session['user'] == None %}
+    {% else %}
     <section class="secPublicar">
         {% if '/!' not in request.path %}
         <form action="publicar" method="post">
@@ -58,11 +60,12 @@
             <input type="submit" value="Publicar">
         </form>
     </section>
+    <i class="btnPost fa-solid fa-pen-to-square"></i>
+    <a href="/logout"><i class="btnLogout fa-solid fa-arrow-right-from-bracket"></i></a>
+    {% endif %}
         {% block conteudo %}
 
         {% endblock %}
-    <i class="btnPost fa-solid fa-pen-to-square"></i>
-    <a href="/logout"><i class="btnLogout fa-solid fa-arrow-right-from-bracket"></i></a>
 </body>
 <script>
     let imagem = document.querySelectorAll("#imagem")

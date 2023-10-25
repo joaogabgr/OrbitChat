@@ -49,7 +49,7 @@ def logout():
 def cadastrar():
     email = request.form['email']
     nome = request.form['nome']
-    usuario = request.form['usuario']
+    usuario = request.form['usuario'].replace(' ', '')
     senha = request.form['password']
     confSenha = request.form['password1']
 

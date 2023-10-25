@@ -1,57 +1,58 @@
 {% block comentario %}
 <div class="bannerComentario">
-    <div onclick="window.location = '/@{{comentario.fk_usuario}}'" class="titulo">
-        <div>
-            <img id="imagem" src="{{ comentario.fk_perfil }}" alt="">
-            <p>{{ comentario.fk_nome }}</p>
-        </div>
-        {% if comentario.retweet == None %}
-        <p>@{{ comentario.fk_usuario }}</p>
+  <div onclick="window.location = '/@{{comentario.fk_usuario}}'" class="titulo">
+    <div>
+      <img id="imagem" src="{{ comentario.fk_perfil }}" alt="" />
+      <p>{{ comentario.fk_nome }}</p>
+    </div>
+    {% if comentario.retweet == None %}
+    <p>@{{ comentario.fk_usuario }}</p>
+    {% else %}
+    <p>@{{ comentario.fk_usuario }}</p>
+    <a href="/@{{ comentario.retweet }}"
+      ><i class="rt fa-solid fa-retweet"></i>@{{ comentario.retweet }}</a
+    >
+    {% endif %}
+  </div>
+  <div class="comentario">
+    <p>{{ comentario.comentario}}</p>
+  </div>
+  <div class="infos">
+    <div class="infosBtn">
+      <div onclick="window.location = '/!{{comentario.id}}'">
+        <i class="fa-regular fa-comment"></i>
+        <p>{{ comentario.qtd_respostas }}</p>
+      </div>
+      <div class="curtir" onclick="atualizarCurtir('{{comentario.id}}')">
+        {% if user == None %}
+        <i class="fa-regular fa-heart"></i>
+        {% else %} {% if like.query.filter_by(user_id=user.id,
+        tweet_id=comentario.id).first() %}
+        <i class="curtida fa-regular fa-heart ativo"></i>
         {% else %}
-        <p>@{{ comentario.fk_usuario }}</p>
-        <a href="/@{{ comentario.retweet }}"><i class="rt fa-solid fa-retweet"></i>@{{ comentario.retweet }}</a>
-        {% endif %}
+        <i class="curtida fa-regular fa-heart"></i>
+        {% endif %} {% endif %}
+        <p class="qtdLikes">{{ comentario.qtd_likes }}</p>
+      </div>
+      <div onclick="atualizarRT('{{comentario.id}}')">
+        {% if user == None %}
+        <i class="fa-solid fa-retweet"></i>
+        {% else %} {% if comentar.query.filter_by(retweet=user.usuario,
+        id_retweet=comentario.id).first() %}
+        <i class="rt retweetado fa-solid fa-retweet"></i>
+        {% else %}
+        <i class="rt fa-solid fa-retweet"></i>
+        {% endif %} {% endif %}
+        <p class="qtdRT">{{ comentario.qtd_retweets }}</p>
+      </div>
     </div>
-    <div class="comentario">
-        <p>{{ comentario.comentario}}</p>
+    <div class="data">
+      {% if comentario.data %}
+      <p>{{ comentario.data.strftime('%d/%m/%Y - %H:%M') }}</p>
+      {% else %}
+      <p>A data não está disponível.</p>
+      {% endif %}
     </div>
-    <div class="infos">
-        <div onclick="window.location = '/!{{comentario.id}}'">
-            <i class="fa-regular fa-comment"></i>
-            <p>{{ comentario.qtd_respostas }}</p>
-        </div>
-        <div class="curtir" onclick="atualizarCurtir('{{comentario.id}}')">
-            {% if user == None %}
-            <i class="fa-regular fa-heart"></i>
-            {% else %}
-                {% if like.query.filter_by(user_id=user.id, tweet_id=comentario.id).first() %}
-                <i class="curtida fa-regular fa-heart ativo"></i>
-                {% else %}
-                <i class="curtida fa-regular fa-heart"></i>
-                {% endif %}
-            {% endif %}
-            <p class="qtdLikes">{{ comentario.qtd_likes }}</p>
-        </div>
-        <div onclick="atualizarRT('{{comentario.id}}')">
-            {% if user == None %}
-            <i class="fa-solid fa-retweet"></i>
-            {% else %}
-                {% if comentar.query.filter_by(retweet=user.usuario, id_retweet=comentario.id).first() %}
-                <i class="rt retweetado fa-solid fa-retweet"></i>
-                {% else %}
-                <i class="rt fa-solid fa-retweet"></i>
-                {% endif %}
-            {% endif %}
-            <p class="qtdRT">{{ comentario.qtd_retweets }}</p>
-        </div>
-        <div class="data">
-            {% if comentario.data %}
-            <p>{{ comentario.data.strftime('%d/%m/%Y - %H:%M') }}</p>
-            {% else %}
-            <p>A data não está disponível.</p>
-            {% endif %}
-        </div>
-
-    </div>
+  </div>
 </div>
 {% endblock %}

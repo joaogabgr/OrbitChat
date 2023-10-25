@@ -62,7 +62,7 @@ def perfil(usuario):
 def comentario(id):
     comentario = Comentarios.query.filter_by(id=id).first()
     respostas = Comentarios.query.filter_by(resposta=id).order_by(Comentarios.id.desc())
-    return render_template('comentario.html', comentario=comentario, respostas=respostas, user=user(), like=Likes)
+    return render_template('comentario.html', comentario=comentario, respostas=respostas, user=user(), like=Likes, comentar=Comentarios)
 
 @app.route('/explorar', methods=['GET', 'POST'])
 def explorar():

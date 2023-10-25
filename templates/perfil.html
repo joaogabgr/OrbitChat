@@ -17,16 +17,15 @@
             <p class="name">{{ usuario.nome }}</p>
             {% if usuario.email == user.email %}
             <button class="btnEditarPerfil">Editar perfil</button>
-            {% else %}
-            {% if user == None %}
-            <button>Seguir</button>
-            {% else %}
-            {% if seguidor.query.filter_by(fk_seguidor=user.id, fk_seguindo=usuario.id).first() == None %}
-            <button class="seguir">Seguir</button>
-            {% else %}
-            <button class="seguir seguindo">Seguindo</button>
-            {% endif %}
-            {% endif %}
+                {% else %}
+                {% if user == None %}
+                {% else %}
+                    {% if seguidor.query.filter_by(fk_seguidor=user.id, fk_seguindo=usuario.id).first() == None %}
+                    <button class="seguir">Seguir</button>
+                    {% else %}
+                    <button class="seguir seguindo">Seguindo</button>
+                    {% endif %}
+                {% endif %}
             {% endif %}
         </div>
         <p class="userUsuario">@{{ usuario.usuario }}</p>

@@ -24,6 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--principal);
+    margin-top: 65px;
 }
 
 /* FLASH */
@@ -45,6 +46,10 @@ header {
     align-items: center;
     border-bottom: var(--quaternario) 1px solid;
     user-select: none;
+    position: fixed;
+    width: 50vw;
+    background-color: var(--principal);
+    margin-top: -65px;
 }
 
     header .logo {
@@ -279,12 +284,14 @@ section.secComentarios .bannerComentario {
                     color: var(--terciario);
                 }
 
-            section.secComentarios .infos div:hover {
-                color: var(--quinary);
-            }
+                    section.secComentarios .infos .infosBtn > div {
+                        margin-right: 30px;
+                    }
 
-            section.secComentarios .infos div:last-child:hover {
-                color: var(--secundario);
+                    section.secComentarios .infos .infosBtn > div:hover {
+                        color: var(--quinary);
+                    }
+            section.secComentarios .infos .data {
                 cursor: auto;
             }
 
