@@ -20,8 +20,13 @@ def publicar():
 
     if request.files['imagem'].filename != '':
         imagem = request.files['imagem']
-        imagem.save(f'static/uploads/imagem{len(os.listdir("static/uploads/"))+1}.jpg')
-        comentario.imagem = f'/static/uploads/imagem{len(os.listdir("static/uploads"))}.jpg'
+        if imagem.content_type != 'video/mp4':
+            imagem.save(f'static/uploads/imagem{len(os.listdir("static/uploads/"))+1}.jpg')
+            comentario.imagem = f'/static/uploads/imagem{len(os.listdir("static/uploads"))}.jpg'
+        else:
+            imagem.save(f'static/uploads/video{len(os.listdir("static/uploads/"))+1}.mp4')
+            comentario.imagem = f'/static/uploads/video{len(os.listdir("static/uploads"))}.mp4'
+
 
     db.session.add(comentario)
     db.session.commit()
@@ -88,3 +93,22 @@ def retweetar(id):
         db.session.add(comentario)
     db.session.commit()
     return 'None'
+
+@app.route('/excluir/<id>', methods=['POST', 'GET'])
+def excluir(id):
+    usuario = user()
+    if usuario == None:
+        return redirect(url_for('index'))
+    publicacao = Comentarios.query.filter_by(id=id).first()
+    likes = Likes.query.filter_by(tweet_id=id).all()
+
+    if publicacao.imagem != None:
+        os.remove(publicacao.imagem[1:])
+
+    if publicacao.fk_id == usuario.id:
+        for like in likes:
+            db.session.delete(like)
+        db.session.commit()
+        db.session.delete(publicacao)
+        db.session.commit()
+    return redirect(url_for('index'))

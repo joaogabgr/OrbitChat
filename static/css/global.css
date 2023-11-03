@@ -112,6 +112,10 @@ header {
             display: none;
         }
 
+            header .btnExplorar {
+                margin-left: 10px;
+            }
+
             header form input {
                 width: 200px;
                 margin: 0;
@@ -232,6 +236,11 @@ section.secComentarios .bannerComentario {
         cursor: pointer;
     }
 
+    section.secComentarios .bannerComentario .titulo div a {
+        margin-left: auto;
+        margin-bottom: 0;
+    }
+
         section.secComentarios .bannerComentario .titulo div img {
             width: 40px;
             height: 40px;
@@ -261,13 +270,25 @@ section.secComentarios .bannerComentario {
         margin: 15px 0;
         text-align: justify;
         word-wrap: break-word;
+        display: flex;
+        flex-direction: column;
     }
 
         section.secComentarios .bannerComentario .comentario img {
-            width: 100%;
+            width: 70%;
+            height: auto;
             max-height: 500px;
             margin-top: 10px;
             margin-bottom: 10px;
+            align-self: center;
+        }
+
+        section.secComentarios .bannerComentario .comentario video {
+            width: 70%;
+            height: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            align-self: center;
         }
 
     section.secComentarios .bannerComentario .infos {

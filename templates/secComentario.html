@@ -7,13 +7,22 @@
     <div onclick="window.location='/@{{comentario.fk_usuario}}'">
       <img id="imagem" src="{{ comentario.fk_perfil }}" alt="" />
       <p>{{ comentario.fk_nome }}</p>
+      {% if comentario.fk_usuario == user.usuario %}
+      <a href="/excluir/{{ comentario.id }}"><i class="fa-solid fa-trash"></i></a>
+      {% endif %}
     </div>
     <p onclick="window.location='/@{{comentario.fk_usuario}}'">@{{ comentario.fk_usuario }}</p>
   </div>
   <div class="comentario">
     <p>{{ comentario.comentario}}</p>
     {% if comentario.imagem != None %}
-    <img src="{{comentario.imagem}}" alt="">
+      {% if comentario.imagem.endswith('.mp4') %}
+        <video controls>
+          <source src="{{comentario.imagem}}" type="video/mp4">
+        </video>
+      {% else %}
+      <img src="{{comentario.imagem}}" alt="">
+      {% endif %}
     {% endif %}
   </div>
   <div class="infos">

@@ -75,9 +75,8 @@ def explorar():
     
     session['pesquisa'] = request.args.get('pesquisa')
 
-    print(f'a pesquisa é: {session["pesquisa"]}')
     usuarios = Usuarios.query.filter(Usuarios.usuario.like(f"%{session['pesquisa']}%")).all()
-    comentarios = Comentarios.query.filter(Comentarios.comentario.like(f"%{session['pesquisa']}%")).all()
+    comentarios = Comentarios.query.filter(Comentarios.comentario.like(f"%{session['pesquisa']}%")).order_by(Comentarios.id.desc()).all()
     return render_template('explorar.html', user=user(), pesquisa=session['pesquisa'], usuarios=usuarios, comentarios=comentarios, like=Likes, comentar=Comentarios)
 
 @app.errorhandler(404)

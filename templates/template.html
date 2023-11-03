@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c6d943c8a3.js" crossorigin="anonymous"></script>
+    <script src="../static/js/imagens.js" defer></script>
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="shortcut icon" href="../static/img/favicon.svg" type="image/x-icon">
     <script src="../static/js/script.js" defer></script>
@@ -68,12 +69,4 @@
 
         {% endblock %}
 </body>
-<script>
-    let imagem = document.querySelectorAll("#imagem")
-    imagem.forEach(element => {
-        element.onerror = function () {
-            element.src = "../static/img/perfil.svg";
-        };
-    });
-</script>
 </html>
