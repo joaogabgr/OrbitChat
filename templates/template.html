@@ -56,7 +56,7 @@
         <form action="responder" method="post" enctype="multipart/form-data">
             <input name="resposta" type="hidden" value="{{ comentario.id }}">
         {% endif %}
-        <input type="file" name="imagem" id="imagem">
+        <input accept="image/*, video/*" type="file" name="imagem" id="imagem">
             <textarea onkeyup="ajustarTamanho(this)" name="publicacao" id="publicacao"
                 placeholder="O que você está pensando?"></textarea>
             <input type="submit" value="Publicar">

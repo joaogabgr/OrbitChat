@@ -44,6 +44,16 @@ def responder():
         publicacao.qtd_respostas += 1
     else:
         publicacao.qtd_respostas = 1
+
+    if request.files['imagem'].filename != '':
+        imagem = request.files['imagem']
+        if imagem.content_type != 'video/mp4':
+            imagem.save(f'static/uploads/imagem{len(os.listdir("static/uploads/"))+1}.jpg')
+            comentario.imagem = f'/static/uploads/imagem{len(os.listdir("static/uploads"))}.jpg'
+        else:
+            imagem.save(f'static/uploads/video{len(os.listdir("static/uploads/"))+1}.mp4')
+            comentario.imagem = f'/static/uploads/video{len(os.listdir("static/uploads"))}.mp4'
+
     db.session.add(publicacao)
     db.session.add(comentario)
     db.session.commit()

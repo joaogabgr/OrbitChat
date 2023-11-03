@@ -4,9 +4,9 @@
     {% if comentario.retweet != None %}
     <a href="/@{{ comentario.retweet }}"><i class="fa-solid fa-retweet"></i>Retweetado por @{{ comentario.retweet }}</a>
     {% endif %}
-    <div onclick="window.location='/@{{comentario.fk_usuario}}'">
-      <img id="imagem" src="{{ comentario.fk_perfil }}" alt="" />
-      <p>{{ comentario.fk_nome }}</p>
+    <div>
+      <img onclick="window.location='/@{{comentario.fk_usuario}}'" id="imagem" src="{{ comentario.fk_perfil }}" alt="" />
+      <p onclick="window.location='/@{{comentario.fk_usuario}}'">{{ comentario.fk_nome }}</p>
       {% if comentario.fk_usuario == user.usuario %}
       <a href="/excluir/{{ comentario.id }}"><i class="fa-solid fa-trash"></i></a>
       {% endif %}
@@ -14,7 +14,7 @@
     <p onclick="window.location='/@{{comentario.fk_usuario}}'">@{{ comentario.fk_usuario }}</p>
   </div>
   <div class="comentario">
-    <p>{{ comentario.comentario}}</p>
+    <p onclick="window.location='/!{{comentario.id}}'">{{ comentario.comentario}}</p>
     {% if comentario.imagem != None %}
       {% if comentario.imagem.endswith('.mp4') %}
         <video controls>

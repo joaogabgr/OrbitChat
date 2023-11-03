@@ -30,7 +30,9 @@
         </div>
         <p class="userUsuario">@{{ usuario.usuario }}</p>
         <p class="userBio">{{ usuario.descricao }}</p>
+        {% if usuario.profissao != 'Sem Profissão' %}
         <p class="userBio">{{ usuario.profissao }}</p>
+        {% endif %}
         <p class="userBio"><span class="qtd_seguidores">{{ seguidores }}</span> Seguidores | {{ seguindo }} Seguindo</p>
     </section>
     <section class="secEditarPerfil">
@@ -44,8 +46,8 @@
                 <div class="banner" id="backgroundContainer"></div>
                 <img id="perfilContainer" src="{{ usuario.perfil }}" alt="">
             </div>
-            <input type="file" id="InputPerfil" name="perfil">
-            <input type="file" id="inputBanner" name="banner">
+            <input type="file" id="InputPerfil" name="perfil" accept="image/*">
+            <input type="file" id="inputBanner" name="banner" accept="image/*">
             <label for="nome">Nome:</label>
             <input type="text" name="name" id="name" value="{{ usuario.nome }}">
             <label for="descricao">Descrição:</label>

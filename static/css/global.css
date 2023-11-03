@@ -20,7 +20,7 @@
 }
 
 body {
-    min-height: 100vh;
+    min-height: calc(100vh - 65px);
     display: flex;
     flex-direction: column;
     background-color: var(--principal);
@@ -47,7 +47,7 @@ header {
     border-bottom: var(--quaternario) 1px solid;
     user-select: none;
     position: fixed;
-    width: 49vw;
+    width: 50vw;
     background-color: var(--principal);
     margin-top: -65px;
     z-index: 1;
@@ -213,7 +213,7 @@ section.secPublicar.ativar {
 /* BOX DE COMENTARIOS */
 
 section.secComentarios {
-margin-top: var(--marginTop);
+    margin-top: var(--marginTop);
 }
 
 section.secComentarios h2 {
@@ -225,6 +225,11 @@ section.secComentarios .bannerComentario {
     border: var(--quaternario) 1px solid;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+section.secComentarios .bannerComentario:hover {
+    border: var(--quinary) 1px solid;
+    transition: 350ms;
 }
 
     section.secComentarios .bannerComentario .titulo div {
@@ -263,6 +268,7 @@ section.secComentarios .bannerComentario {
     section.secComentarios .bannerComentario .titulo > p {
         margin-bottom: 20px;
         cursor: pointer;
+        width: max-content;
     }
 
     section.secComentarios .bannerComentario .comentario {
@@ -273,6 +279,11 @@ section.secComentarios .bannerComentario {
         display: flex;
         flex-direction: column;
     }
+
+        section.secComentarios .bannerComentario .comentario p {
+            width: max-content;
+            cursor: pointer;
+        }
 
         section.secComentarios .bannerComentario .comentario img {
             width: 70%;
@@ -445,20 +456,20 @@ footer {
 
 .btnLogout {
     color: var(--secundario);
-    /* padding: 10px; */
+    padding: 10px; 
     min-width: 60px;
     min-height: 60px;
     margin-top: 3px;
     display: flex;
-    align-items: cnter;
     justify-content: center;
     position: fixed;    
     right: 0px;
-    top: 0px;
+    top: -10px;
     cursor: pointer;
     transition: 350ms;
     font-size: 20px;
     align-items: center;
+    z-index: 1;
 }
 
 .btnLogout:hover {
