@@ -31,6 +31,7 @@ CREATE TABLE Comentarios (
   qtd_likes INT DEFAULT 0,
   qtd_retweets INT DEFAULT 0,
   comentario TEXT NOT NULL,
+  imagem VARCHAR(255),
   data DATETIME DEFAULT CURRENT_TIMESTAMP,
   fk_perfil VARCHAR(255) DEFAULT '/static/img/perfil.svg',
   FOREIGN KEY (fk_id) REFERENCES Usuarios(id),

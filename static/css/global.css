@@ -7,9 +7,9 @@
 :root {
     --principal: #0A090C;
     --secundario: #F0EDEE;
-    --terciario: #ff0000;
+    --terciario: #f14e4e;
     --quaternario: #2c666e;
-    --quinary: #90ddf0; 
+    --quinary: #27c1e7; 
 
     --respiroWidth: 0 10vw;
     --respiroHeight: 10px 0;
@@ -47,9 +47,10 @@ header {
     border-bottom: var(--quaternario) 1px solid;
     user-select: none;
     position: fixed;
-    width: 50vw;
+    width: 49vw;
     background-color: var(--principal);
     margin-top: -65px;
+    z-index: 1;
 }
 
     header .logo {
@@ -70,7 +71,6 @@ header {
 
         header a { 
         color: var(--secundario);
-        margin-left:10px;
         font-size: 18px;
         display: flex;
         align-items: center;
@@ -118,7 +118,6 @@ header {
             }
 
             header i {
-                margin-left: 10px;
                 color: var(--secundario);
                 cursor: pointer;
             }
@@ -126,6 +125,10 @@ header {
         header .BarraAutenticar {
             display: flex;
         }
+
+            header .BarraAutenticar a {
+                margin-left: 10px;
+            }
 
 /* BARRA DE POST */
 
@@ -242,7 +245,8 @@ section.secComentarios .bannerComentario {
         }
 
         section.secComentarios .bannerComentario .titulo a{
-            color: var(--quinary);
+            color: var(--quaternario);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
@@ -258,6 +262,13 @@ section.secComentarios .bannerComentario {
         text-align: justify;
         word-wrap: break-word;
     }
+
+        section.secComentarios .bannerComentario .comentario img {
+            width: 100%;
+            max-height: 500px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
 
     section.secComentarios .bannerComentario .infos {
         display: flex;
@@ -281,7 +292,7 @@ section.secComentarios .bannerComentario {
                 }
 
                 section.secComentarios .infos .retweetado{
-                    color: var(--terciario);
+                    color: var(--quinary);
                 }
 
                     section.secComentarios .infos .infosBtn > div {

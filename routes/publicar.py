@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from app import app, db
 from models import Usuarios, Comentarios, Likes
+import os
 
 def user():
     if 'user' not in session or session['user'] == None:
@@ -16,6 +17,12 @@ def publicar():
         return redirect(url_for('index'))
     publicacao = request.form['publicacao']
     comentario = Comentarios(comentario=publicacao, fk_id=usuario.id, fk_nome=usuario.nome, fk_usuario=usuario.usuario, fk_perfil=f'/static/uploads/perfil{usuario.id}.jpg')
+
+    if request.files['imagem'].filename != '':
+        imagem = request.files['imagem']
+        imagem.save(f'static/uploads/imagem{len(os.listdir("static/uploads/"))+1}.jpg')
+        comentario.imagem = f'/static/uploads/imagem{len(os.listdir("static/uploads"))}.jpg'
+
     db.session.add(comentario)
     db.session.commit()
     return redirect(url_for('index'))

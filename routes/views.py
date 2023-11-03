@@ -54,9 +54,13 @@ def perfil(usuario):
     Comentarios.fk_usuario == usuario.usuario
     ).order_by(Comentarios.id.desc()).all()
 
+    midias = Comentarios.query.filter(
+        Comentarios.imagem.isnot(None),
+        Comentarios.fk_usuario == usuario.usuario
+    ).order_by(Comentarios.id.desc()).all()
 
     action = request.args.get('action')
-    return render_template('perfil.html', action=action, respostas=respostas, comentarios=comentarios, user=user(), usuario=usuario, like=Likes, seguidor=Seguidor, comentar=Comentarios,seguidores=seguidores, seguindo=seguindo)
+    return render_template('perfil.html', action=action, midias=midias, respostas=respostas, comentarios=comentarios, user=user(), usuario=usuario, like=Likes, seguidor=Seguidor, comentar=Comentarios,seguidores=seguidores, seguindo=seguindo)
 
 @app.route('/!<id>')
 def comentario(id):

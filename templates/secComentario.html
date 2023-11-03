@@ -1,37 +1,37 @@
 {% block comentario %}
 <div class="bannerComentario">
-  <div onclick="window.location = '/@{{comentario.fk_usuario}}'" class="titulo">
-    <div>
+  <div class="titulo">
+    {% if comentario.retweet != None %}
+    <a href="/@{{ comentario.retweet }}"><i class="fa-solid fa-retweet"></i>Retweetado por @{{ comentario.retweet }}</a>
+    {% endif %}
+    <div onclick="window.location='/@{{comentario.fk_usuario}}'">
       <img id="imagem" src="{{ comentario.fk_perfil }}" alt="" />
       <p>{{ comentario.fk_nome }}</p>
     </div>
-    {% if comentario.retweet == None %}
-    <p>@{{ comentario.fk_usuario }}</p>
-    {% else %}
-    <p>@{{ comentario.fk_usuario }}</p>
-    <a href="/@{{ comentario.retweet }}"
-      ><i class="rt fa-solid fa-retweet"></i>@{{ comentario.retweet }}</a
-    >
-    {% endif %}
+    <p onclick="window.location='/@{{comentario.fk_usuario}}'">@{{ comentario.fk_usuario }}</p>
   </div>
   <div class="comentario">
     <p>{{ comentario.comentario}}</p>
+    {% if comentario.imagem != None %}
+    <img src="{{comentario.imagem}}" alt="">
+    {% endif %}
   </div>
   <div class="infos">
     <div class="infosBtn">
-      <div onclick="window.location = '/!{{comentario.id}}'">
+      <div onclick="window.location='/!{{comentario.id}}'">
         <i class="fa-regular fa-comment"></i>
         <p>{{ comentario.qtd_respostas }}</p>
       </div>
       <div class="curtir" onclick="atualizarCurtir('{{comentario.id}}')">
         {% if user == None %}
         <i class="fa-regular fa-heart"></i>
-        {% else %} {% if like.query.filter_by(user_id=user.id,
-        tweet_id=comentario.id).first() %}
-        <i class="curtida fa-regular fa-heart ativo"></i>
-        {% else %}
-        <i class="curtida fa-regular fa-heart"></i>
-        {% endif %} {% endif %}
+        {% else %} 
+          {% if like.query.filter_by(user_id=user.id, tweet_id=comentario.id).first() %}
+          <i class="curtida fa-solid fa-heart ativo"></i>
+          {% else %}
+          <i class="curtida fa-solid fa-heart"></i>
+          {% endif %} 
+        {% endif %}
         <p class="qtdLikes">{{ comentario.qtd_likes }}</p>
       </div>
       <div onclick="atualizarRT('{{comentario.id}}')">

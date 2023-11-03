@@ -1,6 +1,6 @@
-function ajustarTamanho(element) {
-    element.style.height = "1px";
-    element.style.height = (25+element.scrollHeight)+"px";
+function ajustarTamanho(textarea) {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
   }
 
 // FUNÇÃO DE CURTIR COMENTARIOS

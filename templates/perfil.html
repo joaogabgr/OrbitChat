@@ -49,9 +49,17 @@
             <label for="nome">Nome:</label>
             <input type="text" name="name" id="name" value="{{ usuario.nome }}">
             <label for="descricao">Descrição:</label>
+            {% if usuario.descricao == 'Sem descrição' %}
+            <textarea onkeyup="ajustarTamanho(this)" name="descricao" placeholder="{{ usuario.descricao }}" id="descricao"></textarea>
+            {% else %}
             <textarea onkeyup="ajustarTamanho(this)" name="descricao" id="descricao">{{ usuario.descricao }}</textarea>
+            {% endif %}
             <label for="profissao">Profissão:</label>
+            {% if usuario.profissao == 'Sem Profissão' %}
+            <input type="text" name="profissao" id="profissao" placeholder="{{ usuario.profissao }}">
+            {% else %}
             <input type="text" name="profissao" id="profissao" value="{{ usuario.profissao }}">
+            {% endif %}
             <input type="submit" id="submit">
         </form>
     </section>
@@ -59,15 +67,20 @@
         <div class="btnComentarios">
             <p onclick="window.location = '/@{{usuario.usuario}}?action=post'">Publicações</p>
             <p onclick="window.location = '/@{{usuario.usuario}}?action=respostas'">Respostas</p>
+            <p onclick="window.location = '/@{{usuario.usuario}}?action=midias'">Midias</p>
         </div>
         {% if action == 'post' or action == None %}
-        {% for comentario in comentarios %}
-        {% include "secComentario.html" %}
-        {% endfor %}
+            {% for comentario in comentarios %}
+            {% include "secComentario.html" %}
+            {% endfor %}
+        {% elif action == 'midias' %}
+            {% for comentario in midias %}
+            {% include "secComentario.html" %}
+            {% endfor %}
         {% else %}
-        {% for comentario in respostas %}
-        {% include "secComentario.html" %}
-        {% endfor %}
+            {% for comentario in respostas %}
+            {% include "secComentario.html" %}
+            {% endfor %}
         {% endif %}
     </section>
 </main>
